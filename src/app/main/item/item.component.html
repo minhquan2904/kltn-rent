@@ -1,0 +1,81 @@
+<app-nav></app-nav>
+<body>
+    
+      <div class="wrapper">
+        <div>
+          <div class="img-wrapper">
+            <div></div>
+            <div>
+              <!-- MOTEL IMAGE -->
+              <img src="{{imagePath}}" alt="" class="img-responsive" />
+            </div>
+            <div></div>
+          </div>
+          <!-- MOTEL INFOMATION -->
+          <div class="info-wrapper">
+              <!-- Description -->
+             <div>
+                <div class="descripsion">
+                    <h4 class="mt-4">About this location</h4>
+                    {{motel.description}}   
+                </div>
+             </div>
+             <!-- Address  -->
+             <div>
+                <div class="address">
+                    <address>
+                        <h4>Address  </h4>
+                        <strong>{{motel.district}}, {{motel.city}} </strong>
+                        <br>{{motel.add}}, {{motel.street}}
+                        <br>{{motel.ward}}
+                        <br>
+                      </address>
+                </div>
+                <button mat-icon-button color="warn"  (click)="onNavigate()">           
+                  <mat-icon aria-label="Example icon-button with a heart icon">room</mat-icon>
+                  Show location
+              </button>
+             </div>
+           </div>
+       
+          </div>
+
+         
+        <!-- USER INFO -->
+        <div class="user-info">
+          <app-user-info></app-user-info>
+        </div>
+        <!-- COMMENT AREA -->
+        
+        
+        <div class="user-info-mobile">
+            <div></div>
+            
+            <div>
+                <button mat-raised-button color="primary" (click)="openDialog()">Show contact info</button>
+            </div>
+
+            <div>
+              
+            </div>
+        </div>
+      </div>
+      <div class="cmt-wrapper">
+        <div></div>
+        <div><app-comment-box></app-comment-box></div>
+        <div></div>
+      </div>
+      <div class="comment-wrapper">
+        <div></div>
+        <div>
+            <div style="height:20px;"> </div> 
+            <div>
+              <!-- comment list -->
+              <app-comment-list></app-comment-list>
+            </div>
+            
+        </div>
+        <div></div>
+          
+      </div>
+</body>

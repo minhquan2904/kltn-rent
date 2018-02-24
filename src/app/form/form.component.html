@@ -1,0 +1,81 @@
+<style>
+  .my-drop-zone { border: dotted 3px lightgray; }
+  .nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+  .another-file-over-class { border: dotted 3px green; }
+
+  html, body { height: 100%; }
+</style>
+<app-nav></app-nav>
+<div class="wrapper" >
+  <div>
+  </div>
+  <div style="background: #FAFAFA!important;  ">
+        <form class="example-container" [formGroup]="options" (ngSubmit)="options.valid &&onSubmit()">
+                <alert></alert>
+                <h4>Thông tin nhà trọ</h4>       
+                <!-- Des -->
+                <mat-form-field>
+                <mat-label>Giới thiệu về nhà trọ</mat-label>
+                <textarea matInput placeholder="Autosize textarea" matTextareaAutosize matAutosizeMinRows="2"
+                matAutosizeMaxRows="5" [(ngModel)]="motel.description" #description="ngModel" [ngModelOptions]="{standalone: true}" ></textarea>
+                </mat-form-field>
+                <!-- Img -->
+                <button type="button" mat-raised-button color="primary" style="width:30%" (click)="openDialog()">Add picture</button>
+                <!-- Price -->
+                <mat-form-field >
+                        <mat-label>Giá tiền</mat-label>
+                        <input matInput placeholder="Giá tiền" required name="price" [(ngModel)]="motel.price" #price="ngModel" [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+                        <!-- Contact -->
+                        <mat-form-field>
+                        <mat-label>Cách thức liên hệ</mat-label>
+                        <input matInput placeholder="Cách thức liên hệ" required name="contact" [(ngModel)]="motel.contact" #contact="ngModel" [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+                <!-- category -->
+                <mat-form-field>
+                        <mat-select required  name="category" [(ngModel)]="motel.category" #category="ngModel" [ngModelOptions]="{standalone: true}">
+                        <mat-option>-- Loại nhà trọ --</mat-option>
+                        <mat-option value="nhà nguyên căn">Nhà nguyên căn</mat-option>
+                        <mat-option value="phòng trọ">Phòng trọ</mat-option>
+                        <mat-option value="chung cư">Chung cư</mat-option>                
+                        </mat-select>
+                        <mat-placeholder><mat-icon>list</mat-icon> <i> Chọn loại nhà trọ</i></mat-placeholder>
+                </mat-form-field>
+                <h4>Địa chỉ</h4>
+                <app-map *ngIf="!getLocation" (locationChild)="passData($event)"></app-map>
+                <button *ngIf="!getLocation"  type="button" mat-raised-button color="accent" (click)="getLocation=!getLocation">Xác nhận địa chỉ</button>
+                <div class="show" *ngIf="getLocation">
+                        <mat-form-field [floatLabel]="options.value.floatLabel">
+                                <mat-label>Thành phố</mat-label>
+                                <input matInput placeholder="Thành phố" required name="city" [(ngModel)]="motel.city" #city="ngModel" [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                        <mat-form-field [floatLabel]="options.value.floatLabel">
+                                <mat-label>Quận</mat-label>
+                                <input matInput placeholder="Quận" required name="district" [(ngModel)]="motel.district" #district="ngModel" [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                        <mat-form-field [floatLabel]="options.value.floatLabel">
+                                <mat-label>Phường</mat-label>
+                                <input matInput placeholder="Phường" required name="ward" [(ngModel)]="motel.ward" #ward="ngModel" [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                        <mat-form-field [floatLabel]="options.value.floatLabel" >
+                                <mat-label>Đường</mat-label>
+                                <input matInput placeholder="Đường" required name="street" [(ngModel)]="motel.street" #street="ngModel" [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                        <mat-form-field [floatLabel]="options.value.floatLabel">
+                                <mat-label>Số nhà</mat-label>
+                                <input matInput placeholder="Số nhà" required name="add" [(ngModel)]="motel.add" #add="ngModel" [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                
+
+                </div>
+                <!-- Address -->
+                <button *ngIf="getLocation"  type="button" mat-raised-button color="accent" (click)="getLocation=!getLocation">Nhập lại địa chỉ</button>
+                <button *ngIf="getLocation" type="submit" mat-raised-button color="primary">Submit</button>
+        </form>
+      
+  </div>
+  <div>
+  </div>
+</div>
+
+
