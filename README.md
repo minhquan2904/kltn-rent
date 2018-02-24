@@ -6,7 +6,7 @@
 <p> start project </p>
 <p> - npm start </p>
 # note
-// 
-- This project will run on port 3000 (both view and server).
-- This project use mongoDB online at mlab.com so you don't need to install mongoDB
+// </br>
+- This project will run on port 3000 (both view and server). </br>
+- This project use mongoDB online at mlab.com so you don't need to install mongoDB </br>
 - The first time you run this project, it will require you to share your location , accept it!
