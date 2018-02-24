@@ -17,8 +17,12 @@ export class ItemComponent implements OnInit {
   constructor(public dialog: MatDialog,private router: Router,
     private route: ActivatedRoute, private motelService: MotelService, private alertService: AlertService) {
      }
-  
-  motel: any; // data model
+  handler = {
+    get: function(target, name) {
+      return target.hasOwnProperty(name) ? target[name] : 42;
+    }
+  };
+  motel: any = new Proxy({}, this.handler);
   imagePath: String; // path to load img
   checkUser: boolean; // flag to check role to update
   data: any = {}; // sth ...
@@ -44,6 +48,7 @@ export class ItemComponent implements OnInit {
     // this.totalLike = this.motelService.getTotalVote(this.route.snapshot.params['id']).count;
 
   }
+  
   // open dialog default fuction
   openDialog(): void {
     let dialogRef = this.dialog.open(UserContactDialog, {

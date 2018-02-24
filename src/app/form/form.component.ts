@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import { FormBuilder, FormGroup} from '@angular/forms';
 import { Validators } from '@angular/forms/src/validators';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Router } from '@angular/router';
 import { FileUploader, FileItem } from 'ng2-file-upload';
 import { appConfig } from '../app.config';

@@ -1,6 +1,6 @@
 webpackJsonp(["snazzy-info-window"],{
 
-/***/ "../../../../snazzy-info-window/dist/snazzy-info-window.min.js":
+/***/ "./node_modules/snazzy-info-window/dist/snazzy-info-window.min.js":
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(t,e){if(true)!(__WEBPACK_AMD_DEFINE_ARRAY__ = [module,exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (e),
