@@ -1,9 +1,9 @@
 # kltn-rent
-// install the node_modules
+install the node_modules
 - npm i 
-// create a newest view
+create a newest view
 - ng build 
-//start project
+start project
 - npm start 
 # note
 - This project will run on port 3000 (both view and server).
