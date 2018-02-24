@@ -1,6 +1,6 @@
 # kltn-rent
 install the node_modules
-- npm i 
+- npm i <br/>
 create a newest view
 - ng build 
 start project
