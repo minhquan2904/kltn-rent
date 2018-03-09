@@ -17,24 +17,22 @@ export class ItemComponent implements OnInit {
   constructor(public dialog: MatDialog,private router: Router,
     private route: ActivatedRoute, private motelService: MotelService, private alertService: AlertService) {
      }
-  handler = {
-    get: function(target, name) {
-      return target.hasOwnProperty(name) ? target[name] : 42;
-    }
+      handler = {
+      get: function(target, name) {
+        return target.hasOwnProperty(name) ? target[name] : 42;
+      }
   };
+  mapTab: any;
   motel: any = new Proxy({}, this.handler);
   imagePath: String; // path to load img
   checkUser: boolean; // flag to check role to update
   data: any = {}; // sth ...
-  
-  totalLike: any; // 
+  totalLike: any; //  ...
   vote_data: any = {}; // data to check if user already like this post
 
-  motel_id: any; // get id from query 
-
+  motel_id: any; // get id from query
 
   ngOnInit() {
-    
     this.motel_id = this.route.snapshot.params['id']; // get motel id from query params
     // get data from server
     this.getMotelDetail(this.motel_id);

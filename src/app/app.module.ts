@@ -8,7 +8,7 @@ import { AuthGuard } from './_guards/index';
 import { customHttpProvider, NullDefaultValueDirective } from './_helpers/index';
 import { FileSelectDirective, FileDropDirective, FileUploader } from 'ng2-file-upload/ng2-file-upload';
 import {
-  AuthenticationService, AlertService, NoteBookService, MotelService, CommentService, LocationService } from './_services/index';
+  AuthenticationService, AlertService, MotelService, CommentService, LocationService } from './_services/index';
 import { AgmCoreModule } from '@agm/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule,
@@ -61,7 +61,8 @@ import { ShowMapComponent } from './main/layout/show-map/show-map.component';
 import { CommentBoxComponent } from './main/layout/comment-box/comment-box.component';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { FailPageComponent } from './main/layout/fail-page/fail-page.component';
-import { FormComponent,DialogOverviewExampleDialog } from './form/form.component';
+import { FormComponent, DialogOverviewExampleDialog } from './form/form.component';
+import { MapServiceComponent } from './main/layout/map-service/map-service.component';
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full' , component: HomeComponent},
   { path: 'home', component: HomeComponent},
@@ -88,7 +89,7 @@ const appRoutes: Routes = [
     FooterComponent,
     RecentPostComponent,
     LoginComponent,
-    ItemComponent,UserContactDialog,
+    ItemComponent, UserContactDialog,
     MapComponent,
     AdminMenuComponent,
     AdminPageComponent,
@@ -98,18 +99,18 @@ const appRoutes: Routes = [
     CommentBoxComponent,
     FileSelectDirective,
     FailPageComponent,
-    FormComponent,DialogOverviewExampleDialog
+    FormComponent, DialogOverviewExampleDialog, MapServiceComponent
     ],
     entryComponents: [FormComponent, DialogOverviewExampleDialog, ItemComponent, UserContactDialog],
   imports: [
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyAslxy4f_o9CBtV-gh2iT8ZMyR0RoKP_UQ",
-      libraries: ["places"]
+      apiKey: 'AIzaSyAslxy4f_o9CBtV-gh2iT8ZMyR0RoKP_UQ',
+      libraries: ['places']
     }),
     AgmSnazzyInfoWindowModule,
     BrowserModule,
     HttpModule,
-    FormsModule,ReactiveFormsModule,
+    FormsModule, ReactiveFormsModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
   MatButtonModule,
@@ -147,7 +148,6 @@ const appRoutes: Routes = [
   providers: [
     AuthGuard,
     AuthenticationService,
-    NoteBookService,
     AlertService,
     LocationService,
     customHttpProvider,

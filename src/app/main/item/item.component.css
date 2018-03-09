@@ -27,7 +27,7 @@
 }
 .info-wrapper{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 4fr 4fr 1fr;
     grid-gap: 5px;
 }
 .info-wrapper > div{

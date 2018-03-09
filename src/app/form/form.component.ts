@@ -18,7 +18,7 @@ export class FormComponent implements OnInit {
   // set up file uploader
   public motel: any = {};
   options: FormGroup;
-  constructor(public dialog: MatDialog,fb: FormBuilder, 
+  constructor(public dialog: MatDialog, fb: FormBuilder, 
     public motelService: MotelService, public alertService: AlertService,
     public router: Router) {this.options = fb.group({
     hideRequired: false,

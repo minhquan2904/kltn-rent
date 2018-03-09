@@ -6,14 +6,25 @@
           <div class="img-wrapper">
             <div></div>
             <div>
-              <!-- MOTEL IMAGE -->
-              <img src="{{imagePath}}" alt="" class="img-responsive" />
+              <!-- TAB IMG + MAP -->
+                <mat-tab-group>
+                    <mat-tab label="Image">
+                      <!-- MOTEL IMAGE -->
+                      <img src="{{imagePath}}" alt="" class="img-responsive" /></mat-tab>
+                      <mat-tab #mapTab label="Map">
+                          <div *ngIf="mapTab.isActive">
+                            <app-map-service [myData]="data"></app-map-service>
+                          </div>
+                      </mat-tab>
+                </mat-tab-group>
+              
             </div>
             <div></div>
           </div>
           <!-- MOTEL INFOMATION -->
           <div class="info-wrapper">
               <!-- Description -->
+              <div></div>
              <div>
                 <div class="descripsion">
                     <h4 class="mt-4">About this location</h4>
@@ -36,6 +47,7 @@
                   Show location
               </button>
              </div>
+             <div></div>
            </div>
        
           </div>
