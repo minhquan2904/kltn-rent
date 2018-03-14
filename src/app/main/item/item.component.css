@@ -32,8 +32,7 @@
 }
 .info-wrapper > div{
     background: #FAFAFA;
-    border: 2px #9E9E9E solid;
-    border-radius: 10%;
+
     padding: 1em;
 }
 .info-wrapper > div:nth-child(odd){
@@ -138,4 +137,8 @@ body{
         display: block;
     }
 
+}
+/* FIX IMG */
+img {
+    margin: auto;
 }

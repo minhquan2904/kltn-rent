@@ -50,7 +50,7 @@ import { SearchComponent } from './main/layout/search/search.component';
 import { HomeComponent } from './main/home/home.component';
 import { FooterComponent } from './main/layout/footer/footer.component';
 import { RecentPostComponent } from './main/layout/recent-post/recent-post.component';
-import { LoginComponent } from './main/login/login.component';
+import { LoginComponent, RegisterDialog } from './main/login/login.component';
 import { ItemComponent, UserContactDialog } from './main/item/item.component';
 import { MapComponent } from './main/layout/map/map.component';
 import { AdminMenuComponent } from './admin/layout/admin-menu/admin-menu.component';
@@ -66,7 +66,7 @@ import { MapServiceComponent } from './main/layout/map-service/map-service.compo
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full' , component: HomeComponent},
   { path: 'home', component: HomeComponent},
-  { path: 'add', component: FormComponent},
+  { path: 'add', component: FormComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent},
   { path: 'item/:id', component: ItemComponent},
   { path: 'admin', component: AdminPageComponent},
@@ -88,7 +88,7 @@ const appRoutes: Routes = [
     HomeComponent,
     FooterComponent,
     RecentPostComponent,
-    LoginComponent,
+    LoginComponent, RegisterDialog,
     ItemComponent, UserContactDialog,
     MapComponent,
     AdminMenuComponent,
@@ -101,7 +101,7 @@ const appRoutes: Routes = [
     FailPageComponent,
     FormComponent, DialogOverviewExampleDialog, MapServiceComponent
     ],
-    entryComponents: [FormComponent, DialogOverviewExampleDialog, ItemComponent, UserContactDialog],
+    entryComponents: [FormComponent, DialogOverviewExampleDialog, ItemComponent, UserContactDialog, LoginComponent, RegisterDialog],
   imports: [
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAslxy4f_o9CBtV-gh2iT8ZMyR0RoKP_UQ',

@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { ElementRef, NgZone, ViewChild } from '@angular/core';
 
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader, AgmMap } from '@agm/core';
 import { Observable } from 'rxjs';
@@ -23,7 +23,7 @@ export class MapServiceComponent implements OnInit {
   public longitude: Number; // lat of motel, receive from parents and dont change
 
   public zoom: number; // map zoom value
-  public radius: Number = 200; // radius to search nearby and draw circle
+  public radius: Number = 500; // radius to search nearby and draw circle
 
   // circle properties
   public circleProps = {
@@ -55,6 +55,12 @@ export class MapServiceComponent implements OnInit {
   public agmMap: AgmMap;
   @Input() myData; // data receive from parent
 
+
+  // init array types
+  checkboxGroup = new FormGroup({});
+  checkboxTypes = ['store', 'school', 'hospital', 'health',
+                  'restaurant', 'bus_station', 'lodging', 'local_government_office'];
+  types = ['school', 'hospital', 'store']; // types selected
   ngOnInit() {
     this.agmMap.triggerResize(true);
     // set google maps defaults
@@ -75,13 +81,15 @@ export class MapServiceComponent implements OnInit {
       const placesService = new google.maps.places.PlacesService(map);
       const place: any = placesService.nearbySearch;
       // search service nearby by types
-      placesService.nearbySearch({
-        location: latlng,
-        radius: this.radius,
-        type: ['pub']
-      }, (results, status) => {
-          this.callback(results, status);
-      }); // end nearby search
+      for (let i = 0; i < this.types.length; i++) {
+        placesService.nearbySearch({
+          location: latlng,
+          radius: this.radius,
+          type: this.types[i]
+        }, (results, status) => {
+            this.callback(results, status);
+        }); // end nearby search
+      }
 
     }); // end map api load
   } // end ng on init
@@ -115,5 +123,20 @@ export class MapServiceComponent implements OnInit {
 
     // push to array
     this.listService.push(item);
+  }
+
+  onChange(event) {
+    if (event.checked) {
+      this.types.push(event.source.value);
+      // this.agmMap.triggerResize(true);
+    } else {
+      const index = this.types.indexOf(event.source.value, 0);
+      if (index > -1) {
+        this.types.splice(index, 1);
+      }
+    }
+    console.log(this.types);
+    this.listService = [];
+    this.ngOnInit();
   }
 }

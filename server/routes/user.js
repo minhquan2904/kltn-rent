@@ -9,9 +9,24 @@ router.get('/',getAll);
 router.post('/authenticate', authenticate);
 router.post('/register', register);
 router.post('/find-mod',findMod);
+router.post('/find-by-id', findById );
 router.delete('/:id', _delete);
 module.exports = router;
-
+function findById(req,res) {
+    service.findById(req.body.id)
+            .then(function (user) {
+                if (user) {
+                    // authentication successful
+                    res.send(user);
+                } else {
+                    // authentication failed
+                    res.status(404).send('Not found');
+                }
+            })
+            .catch(function (err) {
+                res.status(400).send(err);
+            });
+}
 function authenticate(req, res) {
     service.authenticate(req.body.username, req.body.password)
         .then(function (user) {

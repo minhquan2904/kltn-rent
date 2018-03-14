@@ -1,13 +1,12 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { FormBuilder, FormGroup} from '@angular/forms';
-import { Validators } from '@angular/forms/src/validators';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Router } from '@angular/router';
 import { FileUploader, FileItem } from 'ng2-file-upload';
 import { appConfig } from '../app.config';
 import { AlertService, MotelService } from '../_services/index';
-
-const URL = appConfig.apiUrl + "/uploadImg";
+import { MatHorizontalStepper, MatStep } from '@angular/material';
+const URL = appConfig.apiUrl + '/uploadImg';
 
 @Component({
   selector: 'app-form',
@@ -18,35 +17,39 @@ export class FormComponent implements OnInit {
   // set up file uploader
   public motel: any = {};
   options: FormGroup;
-  constructor(public dialog: MatDialog, fb: FormBuilder, 
+  constructor(public dialog: MatDialog, fb: FormBuilder, private _formBuilder: FormBuilder,
     public motelService: MotelService, public alertService: AlertService,
     public router: Router) {this.options = fb.group({
     hideRequired: false,
     floatLabel: 'auto',
   }); }
 
+  @ViewChild(MatHorizontalStepper) stepper: MatHorizontalStepper;
 
+  // stepper variable
+  step1Completed = false;
+  step2Completed = false;
+  isLinear = true;
   ngOnInit() {
-  }
-  onSubmit(){
+    }
+  onSubmit() {
     // get location from session
-    this.motel.lat = localStorage.getItem("lat");
-    this.motel.lng = localStorage.getItem("lng");
-    this.motel.customer = JSON.parse(localStorage.getItem("currentUser"))._id;
+    this.motel.lat = localStorage.getItem('lat');
+    this.motel.lng = localStorage.getItem('lng');
+    this.motel.customer = JSON.parse(localStorage.getItem('currentUser'))._id;
     this.motel.status = false;
     // remove session location
-    localStorage.removeItem("lat");
-    localStorage.removeItem("lng");
-    this.motelService.create(this.motel).then(data =>
-      {
+    localStorage.removeItem('lat');
+    localStorage.removeItem('lng');
+    this.motelService.create(this.motel).then(data => {
         const id = JSON.parse(data._body);
         this.router.navigate(['/item', id]);
         this.alertService.success(data.toString());
       },
-      (err) => {this.alertService.error(err)});
+      (err) => {this.alertService.error(err); });
   }
   openDialog(): void {
-    let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '500px',
       data: {motel: this.motel}
     });
@@ -61,27 +64,54 @@ export class FormComponent implements OnInit {
       if (element.types[0] === 'administrative_area_level_1') {
         this.motel.city = element.long_name;
       }
-      if(element.types[0] == "administrative_area_level_2")
-      {
+      if (element.types[0] === 'administrative_area_level_2') {
         this.motel.district = element.long_name;
       }
-      if(element.types[0] == "sublocality_level_1")
-      {
+      if (element.types[0] === 'sublocality_level_1') {
         this.motel.ward = element.long_name;
       }
-      if(element.types[0] == "route")
-      {
+      if (element.types[0] === 'route') {
         this.motel.street = element.long_name;
       }
-      if(element.types[0] == "street_number")
-      {
+      if (element.types[0] === 'street_number') {
         this.motel.add = element.long_name;
       }
     });
 
     console.log(this.motel);
   }
+  complete() {
+    this.stepper.next();
+  }
 
+  step_1_next() {
+    const price = this.motel.price;
+    const contact = this.motel.contact;
+    if (!price || !contact) {
+      this.step1Completed = false;
+      this.alertService.error('please fill required inputs');
+    }else {
+      this.step1Completed = true;
+      this.alertService.success('Everything is ok ');
+      setTimeout(() => {
+        this.stepper.next();
+      }, 2);
+    }
+  }
+
+  step_2_next() {
+    const category = this.motel.category;
+    if (!category) {
+      this.step2Completed = false;
+      this.alertService.error('please fill required inputs');
+    }else {
+      this.step2Completed = true;
+      this.alertService.success('Everything is ok ');
+      setTimeout(() => {
+        this.stepper.next();
+      }, 2);
+    }
+  }
 }
 
 @Component({
@@ -90,42 +120,35 @@ export class FormComponent implements OnInit {
   styleUrls: ['./dialog-overview-example-dialog.css']
 })
 export class DialogOverviewExampleDialog {
-  public uploader:FileUploader = new FileUploader({url: URL});
-  public hasBaseDropZoneOver:boolean = false;
-  public hasAnotherDropZoneOver:boolean = false;
-   
+  public uploader: FileUploader = new FileUploader({url: URL});
+  public hasBaseDropZoneOver: Boolean = false;
+  public hasAnotherDropZoneOver: Boolean = false;
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     alertService: AlertService) {
       this.uploader.onCompleteItem = (item: FileItem, response: string, status: number) => {
         console.log(status);
-        if(status === 200)
-        {
+        if (status === 200) {
           this.data.motel.img = response;
           alertService.success(response);
+        } else {
+          alertService.error('Status: ' + status + '||' + response);
         }
-        else{
-          alertService.error("Status: " + status + "||" + response);
-        }
-      }
-  
+      };
       this.uploader.onErrorItem = (item: FileItem, response: string, status: number) => {
         alertService.error(response);
         console.log(response);
-      }
-      
+      };
      }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
-  public fileOverBase(e:any):void {
+  public fileOverBase(e: any): void {
     this.hasBaseDropZoneOver = e;
   }
- 
-  public fileOverAnother(e:any):void {
+  public fileOverAnother(e: any): void {
     this.hasAnotherDropZoneOver = e;
   }
-
 }

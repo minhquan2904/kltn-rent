@@ -1,5 +1,11 @@
 /*Test grid*/
+body {
+  height: 100%;
+  background-color: #eee  !important;
+}
 .wrapper{
+  height: 100%;
+  min-height: 600px;
   padding-top: 80px;
   display: grid;
   grid-template-columns: 20% 60% 20%;

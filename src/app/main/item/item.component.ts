@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MotelService, AlertService, WindowService } from '../../_services/index';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { appConfig } from '../../app.config';
 import { MapsAPILoader, AgmMap } from '@agm/core';    // Added AgmMap
 import { } from 'googlemaps';
@@ -14,7 +14,7 @@ const URL = '/assets/';
 })
 export class ItemComponent implements OnInit {
 
-  constructor(public dialog: MatDialog,private router: Router,
+  constructor(public dialog: MatDialog, private router: Router,
     private route: ActivatedRoute, private motelService: MotelService, private alertService: AlertService) {
      }
       handler = {
@@ -46,10 +46,9 @@ export class ItemComponent implements OnInit {
     // this.totalLike = this.motelService.getTotalVote(this.route.snapshot.params['id']).count;
 
   }
-  
   // open dialog default fuction
   openDialog(): void {
-    let dialogRef = this.dialog.open(UserContactDialog, {
+    const dialogRef = this.dialog.open(UserContactDialog, {
       width: '500px',
       data: {motel: this.motel}
     });
@@ -100,7 +99,7 @@ export class ItemComponent implements OnInit {
       (err) => {this.alertService.error(err); });
   }
 
-  // check data 
+  // check data
   passData(model: any) {
     // console.log(model);
     model.forEach(element => {
@@ -142,5 +141,4 @@ export class UserContactDialog {
   onNoClick(): void {
     this.dialogRef.close();
   }
-
 }

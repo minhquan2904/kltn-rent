@@ -11,8 +11,24 @@ service.create = create;
 //service.update = update;
 service.delete = _delete;
 service.findMod = findMod;
-
+service.findById = findById;
 module.exports = service;
+function findById(id) {
+    var deferred = Q.defer();
+    users.findOne({"_id": id}, function (err, user) {
+        if(err)
+          deferred.reject(err.name + ': ' + err.message);
+        if(user) {
+            // success
+            user.hash = 'ahihi';
+            deferred.resolve(user);
+        } else {
+            //create new motel
+            deferred.reject("No result found");
+        };
+    });
+            return deferred.promise;
+}
 function findMod()
 {
     var deferred = Q.defer();
@@ -82,7 +98,10 @@ function create(userParam)
     
             // add hashed password to user object
             user.hash = bcrypt.hashSync(userParam.password, 10);
-    
+            if(!userParam.role) {
+                user.role = 3;
+            }
+            
             users.create(
                 user,
                 function (err, doc) {
