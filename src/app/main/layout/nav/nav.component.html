@@ -27,7 +27,7 @@
                               <ul class="nav navbar-nav navbar-right">
                                   <li><a [routerLink]="['/home']">Home</a></li>
                                   <li><a [routerLink]="['/add']">Add</a></li>
-                                  <li><a [routerLink]="['/login']">Login</a></li>
+                                  <li><a [routerLink]="['/login']">{{loginStatus}}</a></li>
                                   <li><a [routerLink]="['/show-map']" [queryParams]="{ lat: data.lat, lng: data.lng}">Overview</a></li>
                                  
 

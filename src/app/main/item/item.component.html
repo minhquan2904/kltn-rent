@@ -1,6 +1,6 @@
 <app-nav></app-nav>
 <body>
-    
+    <alert></alert>
       <div class="wrapper">
         <div>
           <div class="img-wrapper">
@@ -55,7 +55,7 @@
          
         <!-- USER INFO -->
         <div class="user-info">
-          <app-user-info></app-user-info>
+          <app-user-info [myData]="user"></app-user-info>
         </div>
         <!-- COMMENT AREA -->
         
@@ -74,7 +74,7 @@
       </div>
       <div class="cmt-wrapper">
         <div></div>
-        <div><app-comment-box></app-comment-box></div>
+        <div><app-comment-box [exData1]="user" [motelID]="motel_id"></app-comment-box></div>
         <div></div>
       </div>
       <div class="comment-wrapper">

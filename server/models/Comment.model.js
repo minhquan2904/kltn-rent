@@ -9,7 +9,7 @@ var commentSchema = new Schema({
     motel_id: String,
     customer_name: String,
     content: String,
-    add_date: Date
+    created_at: Date
 
 
 },{collection : 'comments'});

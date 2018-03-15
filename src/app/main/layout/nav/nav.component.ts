@@ -8,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
 
   data: any = {};
+  loginStatus: String;
   constructor() { }
 
   ngOnInit() {
+    this.loginStatus = localStorage.getItem('currentUser') ? 'LOG OUT' : 'LOG IN';
     this.getCurrentPosition() ;
   }
   getCurrentPosition()  {

@@ -23,6 +23,16 @@ export class AuthenticationService {
     register(user) {
         return this.http.post('/users/register', user);
     }
+    findById(id) {
+        const req: any = {};
+        req.id = id;
+        console.log(req);
+        return this.http.post('/users/find-by-id', req)
+            .map((response: Response) => {
+            const user = response.json();
+            return user;
+        });
+    }
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');

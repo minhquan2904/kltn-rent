@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MotelService, AlertService, WindowService } from '../../_services/index';
+import { MotelService, AlertService, WindowService, AuthenticationService } from '../../_services/index';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { appConfig } from '../../app.config';
 import { MapsAPILoader, AgmMap } from '@agm/core';    // Added AgmMap
@@ -14,7 +14,7 @@ const URL = '/assets/';
 })
 export class ItemComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private router: Router,
+  constructor(public dialog: MatDialog, private router: Router, private authService: AuthenticationService,
     private route: ActivatedRoute, private motelService: MotelService, private alertService: AlertService) {
      }
       handler = {
@@ -29,7 +29,10 @@ export class ItemComponent implements OnInit {
   data: any = {}; // sth ...
   totalLike: any; //  ...
   vote_data: any = {}; // data to check if user already like this post
-
+  user: any = {
+    firstname: 'default',
+    lastname: 'default'
+  }; // get author info
   motel_id: any; // get id from query
 
   ngOnInit() {
@@ -76,6 +79,11 @@ export class ItemComponent implements OnInit {
       this.motel = res;
       // parse img url
       this.imagePath = URL + this.motel.img;
+      this.authService.findById(this.motel.customer).subscribe( resp => {
+        this.user = resp;
+      }, err => {
+        this.alertService.error(err);
+      });
       // parse location
       this.data.lat = Number.parseFloat(this.motel.lat) ;
       this.data.lng = Number.parseFloat(this.motel.lng);
@@ -124,7 +132,7 @@ export class ItemComponent implements OnInit {
   }
 
   onNavigate() {
-    window.open("https://www.google.com/maps/search/?api=1&query=" +this.data.lat + "," + this.data.lng, "_blank");
+    window.open('https://www.google.com/maps/search/?api=1&query=' + this.data.lat + ',' + this.data.lng, '_blank');
   }
 }
 
