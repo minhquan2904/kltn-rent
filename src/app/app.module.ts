@@ -63,10 +63,12 @@ import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { FailPageComponent } from './main/layout/fail-page/fail-page.component';
 import { FormComponent, DialogOverviewExampleDialog } from './form/form.component';
 import { MapServiceComponent } from './main/layout/map-service/map-service.component';
+import { UserInterfaceComponent } from './user/user-interface/user-interface.component';
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full' , component: HomeComponent},
   { path: 'home', component: HomeComponent},
   { path: 'add', component: FormComponent, canActivate: [AuthGuard] },
+  { path: 'user', component: UserInterfaceComponent},
   { path: 'login', component: LoginComponent},
   { path: 'item/:id', component: ItemComponent},
   { path: 'admin', component: AdminPageComponent},
@@ -99,7 +101,7 @@ const appRoutes: Routes = [
     CommentBoxComponent,
     FileSelectDirective,
     FailPageComponent,
-    FormComponent, DialogOverviewExampleDialog, MapServiceComponent
+    FormComponent, DialogOverviewExampleDialog, MapServiceComponent, UserInterfaceComponent
     ],
     entryComponents: [FormComponent, DialogOverviewExampleDialog, ItemComponent, UserContactDialog, LoginComponent, RegisterDialog],
   imports: [

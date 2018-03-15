@@ -1,0 +1,41 @@
+.container-fluid {
+    background-color: #C5CAE9;
+    height: 100%;
+}
+.example-h2 {
+    margin: 10px;
+    background-color: #3F51B5;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+   
+  }
+  
+.example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+}
+  
+.example-margin {
+    margin: 0 10px;
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-gap: 5px;
+    text-align: center;
+}   
+.mat-card {
+    margin: 10px;
+}
+.wrapper p{
+    padding: 10px;
+}
+
+.btn-wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+}

@@ -21,7 +21,7 @@ export class CommentBoxComponent implements OnInit {
       const name = this.exData1.firstname + ' ' +  this.exData1.lastname;
       this.comment.customer_name = name;
       this.comment.customer_id = this.exData1._id;
-      this.comment.created_at = new Date().toLocaleDateString();
+      this.comment.created_at = new Date();
       this.comment.motel_id = this.motelID;
       this.commentService.comment(this.comment).subscribe(res => {
         this.alertService.success('Thanks for your contribution, it will be checked before show in this location');

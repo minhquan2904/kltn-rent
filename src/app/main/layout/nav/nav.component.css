@@ -1,7 +1,13 @@
 .main_menu_bg{
     margin-top: 0px;
     background-color: #fff;
+} 
+.main_menu {
+   
 }
+.navbar-fixed-top {
+    position: relative;
+} 
 .main_menu_bg .navbar-default {
     background-color: transparent; 
     border-color: transparent; 
