@@ -10,6 +10,8 @@ router.post('/authenticate', authenticate);
 router.post('/register', register);
 router.post('/find-mod',findMod);
 router.post('/find-by-id', findById );
+router.put('/:id', update);
+router.put('/change-password/:id', changePassword);
 router.delete('/:id', _delete);
 module.exports = router;
 function findById(req,res) {
@@ -76,6 +78,26 @@ function _delete(req, res) {
     service.delete(req.params.id)
         .then(function () {
             res.status(200).send("delete ok");
+        })
+        .catch(function (err) {
+            res.status(400).send(err);
+        });
+}
+function update(req, res) {
+    delete req.body['_id'];
+    
+    service.update(req.params.id, req.body)
+        .then(function () {
+            res.status(200).send("update ok");
+        })
+        .catch(function (err) {
+            res.status(400).send(err);
+        });
+}
+function changePassword(req,res) {
+    service.changePassword(req.params.id, req.body) 
+        .then(function () {
+            res.status(200).send("update ok");
         })
         .catch(function (err) {
             res.status(400).send(err);

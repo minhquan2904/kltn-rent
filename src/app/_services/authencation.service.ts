@@ -26,12 +26,18 @@ export class AuthenticationService {
     findById(id) {
         const req: any = {};
         req.id = id;
-        console.log(req);
+      //  console.log(req);
         return this.http.post('/users/find-by-id', req)
             .map((response: Response) => {
             const user = response.json();
             return user;
         });
+    }
+    update(id, user) {
+        return this.http.put('/users/' + id, user);
+    }
+    changePassword(id, password) {
+        return this.http.put('/users/change-password/' + id, password);
     }
     logout() {
         // remove user from local storage to log user out

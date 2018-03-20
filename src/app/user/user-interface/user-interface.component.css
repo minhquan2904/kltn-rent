@@ -39,3 +39,12 @@
     grid-template-columns: 50% 50%;
     text-align: center;
 }
+.mat-card-image {
+    vertical-align: middle;
+    border-radius: 50%;
+    padding: 10px;
+}
+.mat-card-password {
+    width: calc(100%-100px);
+    margin: 0 auto;
+}

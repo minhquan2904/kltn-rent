@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './_guards/index';
+import {FlexLayoutModule} from '@angular/flex-layout';
 import { customHttpProvider, NullDefaultValueDirective } from './_helpers/index';
 import { FileSelectDirective, FileDropDirective, FileUploader } from 'ng2-file-upload/ng2-file-upload';
 import {
@@ -115,6 +116,7 @@ const appRoutes: Routes = [
     FormsModule, ReactiveFormsModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
+    FlexLayoutModule,
   MatButtonModule,
   MatButtonToggleModule,
   MatCardModule,

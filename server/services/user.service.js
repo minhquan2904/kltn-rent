@@ -8,7 +8,8 @@ service.authenticate = authenticate;
 service.getAll = getAll;
 //service.getById = getById;
 service.create = create;
-//service.update = update;
+service.update = update;
+service.changePassword = changePassword;
 service.delete = _delete;
 service.findMod = findMod;
 service.findById = findById;
@@ -130,57 +131,60 @@ function getAll() {
     return deferred.promise;
 }
 
-function update(_id, userParam) {
+function update(id, userParam) {
     var deferred = Q.defer();
-
+   
     // validation
-    db.users.findById(_id, function (err, user) {
+    users.findById(id, function (err, user) {
         if (err) deferred.reject(err.name + ': ' + err.message);
 
-        if (user.username !== userParam.username) {
-            // username has changed so check if the new username is already taken
-            db.users.findOne(
-                { username: userParam.username },
-                function (err, user) {
-                    if (err) deferred.reject(err.name + ': ' + err.message);
-
-                    if (user) {
-                        // username already exists
-                        deferred.reject('Username "' + req.body.username + '" is already taken')
-                    } else {
-                        updateUser();
-                    }
-                });
-        } else {
+        if(user) {
             updateUser();
+        } else {
+            deferred.reject("user not found");
         }
+
     });
 
     function updateUser() {
         // fields to update
         var set = {
-            firstName: userParam.firstName,
-            lastName: userParam.lastName,
-            username: userParam.username,
+            firstname: userParam.firstname,
+            lastname: userParam.lastname,
+            email: userParam.email,
+            phone: userParam.phone
         };
 
-        // update password if it was entered
-        if (userParam.password) {
-            set.hash = bcrypt.hashSync(userParam.password, 10);
-        }
+        users.update({_id: id}, {$set: set}, {new: false}, function(err, user) {
+            if(err) deferred.reject(err.name + ': ' + err.message);
+            deferred.resolve();
+        })
 
-        db.users.update(
-            { _id: mongo.helper.toObjectID(_id) },
-            { $set: set },
-            function (err, doc) {
-                if (err) deferred.reject(err.name + ': ' + err.message);
-
-                deferred.resolve();
-            });
+       
     }
 
     return deferred.promise;
 }
+function changePassword(id, userParam) {
+    var deferred = Q.defer();
+
+    users.findById(id, function(err, user) {
+        if(err) deferred.reject(err.name + ': ' + err.message);
+
+        if(user && bcrypt.compareSync(userParam.oldPassword, user.hash)) {
+            user.hash = bcrypt.hashSync(userParam.newPassword, 10);
+            user.save(function(err, user) {
+                if(err) deferred.reject(err.name + ': ' + err.message); 
+                deferred.resolve();
+            })
+            deferred.resolve();
+        } else {
+            deferred.reject("user not found or password is incorect")
+        }
+    });
+    return deferred.promise;
+}
+    
 
 function _delete(_id) {
     var deferred = Q.defer();

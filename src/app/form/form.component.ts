@@ -33,6 +33,7 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     }
   onSubmit() {
+    console.log("afadasd");
     // get location from session
     this.motel.lat = localStorage.getItem('lat');
     this.motel.lng = localStorage.getItem('lng');
