@@ -14,7 +14,17 @@ router.post('/find-by-user', findByUser);
 router.post('/get-list-nearby', getListNearBy);
 router.post('/find-lt-price', findLtPrice);
 router.get('/find-by-id/:id', findById);
+router.get('/', testIndex);
 module.exports = router;
+function testIndex(req, res) {
+    const value = "H";
+    motel.find($or[{title: { $regex: '.*' + value + '.*' }},  
+                    {city: { $regex: '.*' + value + '.*' }}], function(err, docs) {
+        if(err) res.send(err);
+        res.send('docs: '+docs);
+    }
+    );
+}
 function findLtPrice(req,res)
 {
     motelService.findLtPrice(req.body['price']).then(function(motels){

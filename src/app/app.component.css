@@ -4,7 +4,10 @@
 Author: Bootstrapthemes
 Author URI: http://bootstrapthemes.co
 */
+.router-outlet {
+    margin-top: 65px;
 
+}
 /* Portrait tablets and medium desktops */
 @media (min-width: 992px) and (max-width: 1199px) {
     body {

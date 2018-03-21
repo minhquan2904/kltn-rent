@@ -7,6 +7,7 @@ var service = require('../services/level.service');
 router.get('/', getAll);
 router.post('/insert', insert);
 router.put('/update', update);
+router.post('/get-progress', progress);
 module.exports = router;
 
 function getAll(req, res) {
@@ -35,6 +36,14 @@ function update(req,res) {
         res.status(200).send("Update success");
     })
     .catch(function (err) {
+        res.status(400).send(err);
+    });
+}
+function progress(req, res) {
+    service.progress(req.body).then(function (result) {
+        res.send(result);
+    })
+    .catch( function(err) {
         res.status(400).send(err);
     });
 }

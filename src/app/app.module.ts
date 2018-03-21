@@ -8,8 +8,8 @@ import { AuthGuard } from './_guards/index';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { customHttpProvider, NullDefaultValueDirective } from './_helpers/index';
 import { FileSelectDirective, FileDropDirective, FileUploader } from 'ng2-file-upload/ng2-file-upload';
-import {
-  AuthenticationService, AlertService, MotelService, CommentService, LocationService } from './_services/index';
+import { 
+  AuthenticationService, AlertService, MotelService, CommentService, LocationService, LevelService } from './_services/index';
 import { AgmCoreModule } from '@agm/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule,
@@ -151,6 +151,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     AuthGuard,
+    LevelService,
     AuthenticationService,
     AlertService,
     LocationService,

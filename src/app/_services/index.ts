@@ -6,3 +6,5 @@ export * from './comment.service';
 export * from './window.service' ;
 export * from './location.service';
 export * from './api.service';
+export * from './location.service';
+export * from './level.service';

@@ -22,6 +22,7 @@ export class ItemComponent implements OnInit {
         return target.hasOwnProperty(name) ? target[name] : 42;
       }
   };
+  img: any = [];
   mapTab: any;
   motel: any = new Proxy({}, this.handler);
   imagePath: String; // path to load img
@@ -78,7 +79,7 @@ export class ItemComponent implements OnInit {
       // parse data
       this.motel = res;
       // parse img url
-      this.imagePath = URL + this.motel.img;
+      this.img = this.motel.img;
       this.authService.findById(this.motel.customer).subscribe( resp => {
         this.user = resp;
       }, err => {

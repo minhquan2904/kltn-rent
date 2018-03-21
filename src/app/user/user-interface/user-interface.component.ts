@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService, AlertService } from '../../_services/index';
+import { AuthenticationService, AlertService, LevelService } from '../../_services/index';
 @Component({
   selector: 'app-user-interface',
   templateUrl: './user-interface.component.html',
@@ -7,11 +7,15 @@ import { AuthenticationService, AlertService } from '../../_services/index';
 })
 export class UserInterfaceComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService, private alertService: AlertService) { }
+  constructor(
+    private authService: AuthenticationService,
+    private alertService: AlertService,
+    private levelService: LevelService) { }
   changePasswordFlag = false; // flag show card to change password
   color = 'primary';
   mode = 'determinate';
-  value = 80;
+  value = 80; // progress spinner value
+  maxExp = 60; // exp to level up
   step = 0;
   user: any = {};
   password: any = {}; // model to change password
@@ -20,10 +24,24 @@ export class UserInterfaceComponent implements OnInit {
     this.getUser(id);
     console.log(this.user);
   }
+  getProgress() {
+    const data = {
+      num: this.user.level,
+      exp: this.user.exp
+    };
+    this.levelService.getProgress(data).subscribe( res => {
+      const result = res.json();
+      this.value = result.progress;
+      this.maxExp = result.maxExp;
+    }, err => {
+      this.alertService.error(err);
+    });
+  }
   getUser(id) {
     this.authService.findById(id)
       .subscribe( res => {
         this.user = res;
+        this.getProgress();
       }, err => {
         this.alertService.error(err);
       });

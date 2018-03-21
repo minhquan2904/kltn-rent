@@ -12,7 +12,11 @@ var commentSchema = new Schema({
     created_at: Date
 
 
-},{collection : 'comments'});
+});
+commentSchema.set('autoIndex', false);
+commentSchema.index(
+    {'$**': 'text'}
+)
 
 var comments  = mongoose.model("comments", commentSchema);
 

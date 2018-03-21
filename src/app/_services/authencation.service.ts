@@ -43,7 +43,6 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
     }
-
     _delete(id) {
         return this.http.delete('/users/' + id);
     }

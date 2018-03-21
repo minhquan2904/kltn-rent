@@ -3,10 +3,11 @@ var router = express.Router();
 var mongoose = require('mongoose');
 
 var commentService = require('../services/comment.service');
-
+var tests = require('../models/Test.model');
 router.post('/insert', insert);
 router.get('/find-by-motel/:id', findByMotel );
 router.delete('/:id', _delete);
+
 function insert(req,res)
 {
     commentService.insert(req.body).then(function () {

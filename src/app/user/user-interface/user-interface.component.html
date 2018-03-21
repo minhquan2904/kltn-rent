@@ -14,7 +14,7 @@
           </mat-card>
           <mat-card>
             <mat-card-content>
-              <h4 class="example-h2">Level 1</h4>
+              <h4 class="example-h2">Level {{user.level}}</h4>
               <div class="wrapper">
                 <div></div>
                 <div>
@@ -25,7 +25,7 @@
                     [mode]="mode"
                     [value]="value">
                   </mat-progress-spinner>
-                  <p>Your exp: 123/246</p> 
+                  <p>Your exp: {{user.exp}}/{{maxExp}}</p> 
                 </div>
                 <div></div>
               </div>

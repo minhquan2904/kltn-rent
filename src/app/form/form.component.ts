@@ -30,14 +30,16 @@ export class FormComponent implements OnInit {
   step1Completed = false;
   step2Completed = false;
   isLinear = true;
+  img: any = [];
+
   ngOnInit() {
     }
   onSubmit() {
-    console.log("afadasd");
     // get location from session
     this.motel.lat = localStorage.getItem('lat');
     this.motel.lng = localStorage.getItem('lng');
     this.motel.customer = JSON.parse(localStorage.getItem('currentUser'))._id;
+    this.motel.img = this.img;
     this.motel.status = false;
     // remove session location
     localStorage.removeItem('lat');
@@ -52,7 +54,7 @@ export class FormComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '500px',
-      data: {motel: this.motel}
+      data: {img: this.img}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -131,8 +133,9 @@ export class DialogOverviewExampleDialog {
       this.uploader.onCompleteItem = (item: FileItem, response: string, status: number) => {
         console.log(status);
         if (status === 200) {
-          this.data.motel.img = response;
-          alertService.success(response);
+          this.data.img.push(response);
+          alertService.success('insert success');
+          this.dialogRef.close();
         } else {
           alertService.error('Status: ' + status + '||' + response);
         }

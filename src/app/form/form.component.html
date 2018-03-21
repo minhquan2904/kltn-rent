@@ -16,6 +16,14 @@
                 <mat-horizontal-stepper [linear]="isLinear" id="stepper">
                         <mat-step label="Fill basic infomation" [completed]="step1Completed">
                                         <mat-form-field class="col-xs-12">
+                                                <mat-label>Tiêu đề</mat-label>
+                                                <input matInput placeholder="Tiêu đề" required id="title" name="title" [(ngModel)]="motel.title"  #title="ngModel" [ngModelOptions]="{standalone: true}" >
+                                                <mat-error  *ngIf="title.invalid && (title.dirty || title.touched)">
+                                                        Title can not be blank
+                                                </mat-error>
+                                                
+                                        </mat-form-field>
+                                        <mat-form-field class="col-xs-12">
                                                 <mat-label>Giới thiệu về nhà trọ</mat-label>
                                                 <textarea matInput placeholder="Autosize textarea" matTextareaAutosize matAutosizeMinRows="2"
                                                 matAutosizeMaxRows="5" [(ngModel)]="motel.description" #description="ngModel" [ngModelOptions]="{standalone: true}" ></textarea>
