@@ -31,7 +31,7 @@ export class UserInterfaceComponent implements OnInit {
     };
     this.levelService.getProgress(data).subscribe( res => {
       const result = res.json();
-      this.value = result.progress;
+      this.value = Number.parseInt(result.progress);
       this.maxExp = result.maxExp;
     }, err => {
       this.alertService.error(err);

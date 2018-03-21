@@ -189,3 +189,18 @@ section .subtitle-half h5 {
     width: 100%;
 
 }
+.input-search{
+    display: inline;
+    color: 
+};
+.input-search input{
+    width: 100%;
+    min-width: 500px;
+}
+.home_searce_domain_area {
+    background-color: transparent;
+}
+.mat-form-field {
+    width: 100%;
+    min-width: 300px;
+}

@@ -1,12 +1,12 @@
 
 <div class="container-fluid">
-  <div class="row">
-      <app-nav></app-nav>
-  </div>
-  <div class="row">
+  <div class="row" style="margin-top: 65px;">
     <div class="col-sm-3 col-xs-12">
         <mat-card>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <div class="img-avt">
+              <img class="img-responsive" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          </div>
+            
             <div class="text-center"> 
               <button mat-button color="primary">Update</button>
             </div>
@@ -18,13 +18,18 @@
               <div class="wrapper">
                 <div></div>
                 <div>
-                    <mat-progress-spinner
-                    style="margin:0 auto;"
-                    class="example-margin"
-                    [color]="color"
-                    [mode]="mode"
-                    [value]="value">
-                  </mat-progress-spinner>
+                  <div clas="spinner-percent">
+                      <mat-progress-spinner
+                      style="margin:0 auto;"
+                      class="example-margin"
+                      [color]="color"
+                      [mode]="mode"
+                      [value]="value">
+                    </mat-progress-spinner>
+
+                    <p class="percent">{{value}}%</p>
+                  </div>
+                    
                   <p>Your exp: {{user.exp}}/{{maxExp}}</p> 
                 </div>
                 <div></div>
