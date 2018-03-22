@@ -65,6 +65,7 @@ import { FailPageComponent } from './main/layout/fail-page/fail-page.component';
 import { FormComponent, DialogOverviewExampleDialog } from './form/form.component';
 import { MapServiceComponent } from './main/layout/map-service/map-service.component';
 import { UserInterfaceComponent } from './user/user-interface/user-interface.component';
+import { AdvanceSearchComponent } from './main/layout/advance-search/advance-search.component';
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full' , component: HomeComponent},
   { path: 'home', component: HomeComponent},
@@ -102,7 +103,7 @@ const appRoutes: Routes = [
     CommentBoxComponent,
     FileSelectDirective,
     FailPageComponent,
-    FormComponent, DialogOverviewExampleDialog, MapServiceComponent, UserInterfaceComponent
+    FormComponent, DialogOverviewExampleDialog, MapServiceComponent, UserInterfaceComponent, AdvanceSearchComponent
     ],
     entryComponents: [FormComponent, DialogOverviewExampleDialog, ItemComponent, UserContactDialog, LoginComponent, RegisterDialog],
   imports: [
