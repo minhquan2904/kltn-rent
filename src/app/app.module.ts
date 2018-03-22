@@ -70,6 +70,7 @@ const appRoutes: Routes = [
   { path: '', pathMatch: 'full' , component: HomeComponent},
   { path: 'home', component: HomeComponent},
   { path: 'add', component: FormComponent, canActivate: [AuthGuard] },
+  { path: 'advance', component: AdvanceSearchComponent},
   { path: 'user', component: UserInterfaceComponent},
   { path: 'login', component: LoginComponent},
   { path: 'item/:id', component: ItemComponent},

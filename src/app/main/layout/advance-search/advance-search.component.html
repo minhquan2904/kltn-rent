@@ -1,3 +1,32 @@
-<p>
-  advance-search works!
-</p>
+<div class="container-fluid">
+    <h4 class="text-center">Dữ liệu địa chỉ có thể không chính xác. Để tùy chỉnh, nhập vào khung "Địa chỉ"</h4>
+    <mat-form-field class="col-sm-3">
+        <mat-select placeholder="Tỉnh/ Thành phố"  (change)="onCityChange();" [(ngModel)]="city.id" #id="ngModel" [ngModelOptions]="{standalone: true}">
+          <mat-option *ngFor="let item of resultArray; let i = index" [value]="i">
+            {{ item.name }}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-sm-3">
+        <mat-select placeholder="Quận/ Huyện" (change)="onUpdateAddress(query.district)" [(ngModel)]="query.district" #district="ngModel" [ngModelOptions]="{standalone: true}">
+            <mat-option *ngFor="let item of districtArray; let i = index" [value]="item"  >
+            {{ item }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="col-sm-3">
+        <input matInput placeholder="Xã/ Phường" (blur)="onUpdateAddress(query.ward)" [(ngModel)]="query.ward" #ward="ngModel" [ngModelOptions]="{standalone: true}">
+        <mat-hint>"Xã .../ Phường ..."</mat-hint>
+    </mat-form-field>
+    <mat-form-field class="col-sm-3">
+        <input matInput placeholder="Đường " (blur)="onUpdateAddress(query.street)" [(ngModel)]="query.street" #street="ngModel" [ngModelOptions]="{standalone: true}">
+        <mat-hint>"Chỉ nhập tên đường"</mat-hint>
+    </mat-form-field>
+    <mat-form-field class="col-sm-12">
+        <input matInput type="text" style="width:100%" placeholder="Địa chỉ" [(ngModel)]="query.address" #address="ngModel" [ngModelOptions]="{standalone: true}">
+
+    </mat-form-field>
+
+</div>

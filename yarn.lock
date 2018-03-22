@@ -35,15 +35,15 @@
     "@ngtools/json-schema" "^1.1.0"
     rxjs "^5.5.6"
 
-"@angular/animations@^5.1.2":
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-5.2.1.tgz#cc325c23db98c13539cbedf9405bc068bd3041cd"
+"@angular/animations@^5.2.9":
+  version "5.2.9"
+  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-5.2.9.tgz#220db9fb5a52a193db0023d721b23ddd25a75770"
   dependencies:
     tslib "^1.7.1"
 
-"@angular/cdk@github:angular/cdk-builds":
-  version "5.1.0-4523556"
-  resolved "https://codeload.github.com/angular/cdk-builds/tar.gz/7c8e8c65aa261863c8772c3b0542a44d5c362192"
+"@angular/cdk@^5.2.4":
+  version "5.2.4"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-5.2.4.tgz#c0a429a8710d8fedb157f546e21cb49d4335f7f7"
   dependencies:
     tslib "^1.7.1"
 
@@ -111,9 +111,9 @@
   optionalDependencies:
     node-sass "^4.7.2"
 
-"@angular/common@^5.1.1":
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/@angular/common/-/common-5.2.1.tgz#a6f2d349f6102e6be7cc488899578a0dc327b755"
+"@angular/common@^5.2.9":
+  version "5.2.9"
+  resolved "https://registry.yarnpkg.com/@angular/common/-/common-5.2.9.tgz#beb25d4434498abae56bd8dc2c01ade3f6c45e81"
   dependencies:
     tslib "^1.7.1"
 
@@ -132,9 +132,9 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/core@^5.1.1":
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/@angular/core/-/core-5.2.1.tgz#47347e4098b0e997220d77652f4d9ca44dda8923"
+"@angular/core@^5.2.9":
+  version "5.2.9"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-5.2.9.tgz#3daf13ef9aa754b9954ed21da3eb322e8b20f667"
   dependencies:
     tslib "^1.7.1"
 
@@ -144,9 +144,9 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/forms@^5.1.1":
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-5.2.1.tgz#530f1249bc71d9560297be642d55a5a6c439d920"
+"@angular/forms@^5.2.9":
+  version "5.2.9"
+  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-5.2.9.tgz#12c45b3a02c398b354f09cc740d914cd904c0c9c"
   dependencies:
     tslib "^1.7.1"
 
@@ -160,9 +160,9 @@
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-5.2.1.tgz#438bc1f61bab5ba2e0eeb687ae6be9e6ab0edb18"
 
-"@angular/material@github:angular/material2-builds":
-  version "5.1.0-4523556"
-  resolved "https://codeload.github.com/angular/material2-builds/tar.gz/79ef761256b6177464d68f6be7aad07718e06e3d"
+"@angular/material@^5.2.4":
+  version "5.2.4"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-5.2.4.tgz#9e823798324283d23ea839156fac5bcb73443d55"
   dependencies:
     tslib "^1.7.1"
 
@@ -178,9 +178,9 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/router@^5.1.1":
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/@angular/router/-/router-5.2.1.tgz#fbb3a2d644e854bca25d075e506d25f3c670f8d2"
+"@angular/router@^5.2.9":
+  version "5.2.9"
+  resolved "https://registry.yarnpkg.com/@angular/router/-/router-5.2.9.tgz#0369df6e60c6da3a5842c6eb35e3958d4ffe727e"
   dependencies:
     tslib "^1.7.1"
 
