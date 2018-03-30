@@ -9,7 +9,8 @@ var motelSchema = new Schema({
     category:       String,
     customer:       String,
     description:    String,
-    price:          Number,
+    price:          { type: Number, default: 0},
+    area:           { type: Number, default: 0},
     city:           String,
     district:       String,
     street:         String,
@@ -21,6 +22,7 @@ var motelSchema = new Schema({
     img:            {type: [String]},
     contact:        String,
     status:         Boolean,
+    created_at:     Date,
     fields:         { type: [String], index: true, text: true }
 
 

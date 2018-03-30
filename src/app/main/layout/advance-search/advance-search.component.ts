@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { appConfig } from '../../../app.config';
-
+import { MotelService, AlertService } from '../../../_services/index';
 
 @Component({
   selector: 'app-advance-search',
@@ -9,7 +9,7 @@ import { appConfig } from '../../../app.config';
 })
 export class AdvanceSearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private motelService: MotelService, private alertService: AlertService) { }
   location = appConfig.vn;
   resultArray: any; // array to city list
   districtArray: any = []; // array to district
@@ -19,6 +19,7 @@ export class AdvanceSearchComponent implements OnInit {
     ward: '',
     street: ''
   };
+  motelArray: any = []; // data recceive after search
   city: any = {};
   ngOnInit() {
     this.resultArray = Object.keys(this.location).map( res => {
@@ -32,10 +33,25 @@ export class AdvanceSearchComponent implements OnInit {
       const name = this.resultArray[this.city.id].districts[res];
       return name;
     });
-    this.query.address = this.query.city ;
   }
 
-  onUpdateAddress(value) {
-   this.query.address = value + ', ' + this.query.address;
+
+
+  onAdvanceSearch() {
+  //  this.query.district = this.query.district.substr(this.query.district.indexOf(' ') + 1);
+  //   console.log(this.query);
+    if (this.wordCount(this.query.district) > 2) {
+      this.query.district = this.query.district.substr(this.query.district.indexOf(' ') + 1);
+    }
+    this.motelService.search(this.query).subscribe( res => {
+      this.motelArray = Array.of(res.json());
+      console.log(this.motelArray);
+    }, err => {
+      this.alertService.error(err);
+    });
+  }
+
+  wordCount(str) {
+    return str.split(' ').length;
   }
 }

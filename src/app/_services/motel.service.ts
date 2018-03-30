@@ -81,7 +81,9 @@ export class MotelService {
         return motel;
     });
    }
-
+   search(data) {
+       return this.http.post('/motel/search', data);
+   }
    findLtPrice(data) {
     return this.http.post('/motel/find-lt-price', data)
     .map((response: Response) => {

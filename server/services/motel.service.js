@@ -13,8 +13,32 @@ service.getListNearBy = getListNearBy;
 service.getLatLng = getLatLng;
 service.findLtPrice = findLtPrice;
 service.delete = _delete;
+// service.search = search;
 module.exports = service;
 
+function search(param) {
+    // var deferred = Q.defer();
+    // var h = [];
+    // h[0] = "";
+    // var str = ""; // string query search
+    // for(var k in param) {
+    //     if(param.hasOwnProperty(k)) {
+    //         query[k] = {$regex: '.*' + param[k] + '.*'};
+    //         if(k === "top_price") {
+    //             if(str != "" ) { str += ' AND'}
+    //             str += 'price <= ?';
+    //             h.push(query[k]);
+    //             delete query[k];
+    //         }
+    //         if(k === "bottom_price") {
+    //             if(str != "" ) { str += ' AND'}
+    //             str += 'price >= ?';
+    //             h.push(query[k]);
+    //             delete query[k];
+    //         }
+    //     }
+    // }
+}
 function create(motelParam)
 {
     var deferred = Q.defer();

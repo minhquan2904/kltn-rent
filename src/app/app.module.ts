@@ -66,6 +66,7 @@ import { FormComponent, DialogOverviewExampleDialog } from './form/form.componen
 import { MapServiceComponent } from './main/layout/map-service/map-service.component';
 import { UserInterfaceComponent } from './user/user-interface/user-interface.component';
 import { AdvanceSearchComponent } from './main/layout/advance-search/advance-search.component';
+import { MapMarkerMoveComponent } from './main/layout/map-marker-move/map-marker-move.component';
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full' , component: HomeComponent},
   { path: 'home', component: HomeComponent},
@@ -104,7 +105,7 @@ const appRoutes: Routes = [
     CommentBoxComponent,
     FileSelectDirective,
     FailPageComponent,
-    FormComponent, DialogOverviewExampleDialog, MapServiceComponent, UserInterfaceComponent, AdvanceSearchComponent
+    FormComponent, DialogOverviewExampleDialog, MapServiceComponent, UserInterfaceComponent, AdvanceSearchComponent, MapMarkerMoveComponent
     ],
     entryComponents: [FormComponent, DialogOverviewExampleDialog, ItemComponent, UserContactDialog, LoginComponent, RegisterDialog],
   imports: [
