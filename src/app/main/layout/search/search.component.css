@@ -116,13 +116,20 @@ section .subtitle-half h5 {
     color:#fff;
     font-size:3rem;
     font-family: 'sanchezregular';
-    margin-bottom:40px;
+    
 }
 .slider .single_slider p{
     font-size:1.875rem;
     color:#fff;
     font-family: 'ralewaylight';
-    margin-bottom:40px;
+    margin-bottom:100px;
+}
+.slider .single_slider .home-title{
+    margin-top: 60px;
+    font-size:3.5em;
+    color:#fff;
+    font-family: sans-serif;
+    margin-bottom:0px;
 }
 .slider .single_slider_img_icon{
     margin-bottom:55px;
@@ -177,7 +184,7 @@ section .subtitle-half h5 {
 }
 /* Home Section */
 .home{
-    background: url(../assets/homebg.jpg) no-repeat center left;
+    background: url(/assets/background.jpg) no-repeat center left;
     background-size:cover;
 }
 .home_overlay{
@@ -199,7 +206,9 @@ section .subtitle-half h5 {
     min-width: 500px;
 }
 .home_searce_domain_area {
-    background-color: transparent;
+    background-color: #f5f5f5;
+    padding: 10px;
+    
 }
 .mat-form-field {
     width: 100%;

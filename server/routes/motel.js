@@ -14,10 +14,23 @@ router.post('/find-by-user', findByUser);
 router.post('/get-list-nearby', getListNearBy);
 router.post('/find-lt-price', findLtPrice);
 router.get('/find-by-id/:id', findById);
-router.get('/', testIndex);
-router.post('/search', search);
+
+router.post('/search', search); // advance search
+router.get('/full-search/:q', fullSearch);
 module.exports = router;
 
+function fullSearch(req, res) {
+   motelService.fullSearch(req.params.q).then(function (motels) {
+        if (motels) {
+            res.status(200).send(motels);
+        } else {
+            res.status(404).send("No results");
+        }
+   })
+   .catch(function (err) {
+       res.status(400).send(err);
+   })
+}
 function search(req, res) {
     
     param = req.body;
@@ -80,15 +93,7 @@ function search(req, res) {
 
 
 }
-function testIndex(req, res) {
-    const value = "D";
-    motel.find($or[{title: { $regex: '.*' + value + '.*' }} ,  
-                    { city: { $regex: '.*' + value + '.*' }}] , function(err, docs) {
-        if(err) res.send(err);
-        res.send('docs: '+docs);
-    }
-    );
-}
+
 function findLtPrice(req,res)
 {
     motelService.findLtPrice(req.body['price']).then(function(motels){
