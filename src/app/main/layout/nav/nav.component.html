@@ -1,3 +1,8 @@
+<div class="contact-header">
+    <div class="col-xs-6 contact-float-left">
+        <p><span style="padding-right: 10px"><a href="#">RENT</a></span> | <span style="padding-left:10px;"><a href="">FOLLOW ME ON FACEBOOK</a></span></p>
+    </div>
+</div>
 <mat-toolbar color="primary">
 
     <button mat-button routerLink="/">
@@ -8,6 +13,9 @@
     <span class="fill-remaining-space"></span>
     <div fxLayout="row" fxShow="false" fxShow.gt-sm>
         <button mat-button routerLink="['/home']">Home</button>
+        <button mat-button routerLink="['/home']">District 9</button>
+        <button mat-button routerLink="['/home']">Thu Duc district</button>
+        <button mat-button routerLink="['/home']">More</button>
         <button mat-button [routerLink]="['/add']">Add</button>
         <button mat-button [routerLink]="['/login']">{{loginStatus}}</button>
         <button mat-button [routerLink]="['/show-map']" [queryParams]="{ lat: data.lat, lng: data.lng}">Overview</button>

@@ -89,6 +89,7 @@ section .subtitle-half h5 {
 .main_slider_area{
     padding: 100px 0px;
     text-align: center;
+    position: relative;
 }
 
 
@@ -192,7 +193,7 @@ section .subtitle-half h5 {
 .input-search{
     display: inline;
     color: 
-};
+}
 .input-search input{
     width: 100%;
     min-width: 500px;
@@ -204,3 +205,13 @@ section .subtitle-half h5 {
     width: 100%;
     min-width: 300px;
 }
+.mat-input-inflix.mat-form-field-inflix{
+    border: 1px solid black;
+ }
+ .slider-bottom {
+     position: absolute;
+     padding-top: 10px;
+     bottom: 0;
+     display: grid;
+     grid-template-columns: 2fr 6fr 2fr;
+ }

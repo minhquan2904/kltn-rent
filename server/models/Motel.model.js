@@ -9,7 +9,7 @@ var motelSchema = new Schema({
     category:       String,
     customer:       String,
     description:    String,
-    price:          { type: Number, default: 0},
+    price:          { type: String, default: "Thỏa thuận"},
     area:           { type: Number, default: 0},
     city:           String,
     district:       String,

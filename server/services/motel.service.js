@@ -230,17 +230,7 @@ function degrees_to_radians(degrees)
   return degrees * (pi/180);
 }
 
-function _delete(_id) {
-    var deferred = Q.defer();
 
-   motels.findByIdAndRemove(_id, function(err, res){
-    if(err) deferred.reject(err);
-
-    deferred.resolve();
-    });
-
-    return deferred.promise;
-}
 
 function getLatLng(id)
 {

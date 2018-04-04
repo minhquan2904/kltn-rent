@@ -1,3 +1,7 @@
+.temp{
+    height: 100px;
+}
+
 /* Test css grid */
 .wrapper{
     display: grid;

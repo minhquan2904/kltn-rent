@@ -12,7 +12,7 @@ export class NavComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.loginStatus = localStorage.getItem('currentUser') ? 'LOG OUT' : 'LOG IN';
+    this.loginStatus = localStorage.getItem('currentUser') ? 'Log out' : 'Log in';
     this.getCurrentPosition() ;
   }
   getCurrentPosition()  {
