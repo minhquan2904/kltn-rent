@@ -23,7 +23,8 @@ var motel = require('./server/routes/motel');
 var uploadImg = require('./server/routes/uploadImg');
 var vote = require('./server/routes/vote');
 var comment = require('./server/routes/comment.js');
-var level = require('./server/routes/level');
+var level = require('./server/routes/level'); 
+var statistic = require('./server/routes/statistic');
 var app = express();
 
 app.use(logger('dev'));
@@ -40,6 +41,7 @@ app.use('/uploadImg',uploadImg);
 app.use('/vote', vote);
 app.use('/comment', comment);
 app.use('/level', level);
+app.use('/statistic', statistic);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

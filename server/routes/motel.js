@@ -29,6 +29,7 @@ function getNumPost(req, res) {
     });
 }
 
+
 function fullSearch(req, res) {
    motelService.fullSearch(req.params.q).then(function (motels) {
         if (motels) {

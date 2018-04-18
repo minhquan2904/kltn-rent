@@ -1,18 +1,18 @@
-import { Number } from "core-js";
+
 
 var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema; 
 
 var statisticSchema = new Schema({
-    num_motel:  {type: Number, required: true},
-    num_user:   {type: Number, required: true},
-    visitors:   {type: Number, required: true},
+    num_motels:  {type: Number, required: true},
+    num_users:   {type: Number, required: true},
+    visitors:   {type: Number, default: 0},
     created_at: {type: Date, required: true},
     stopped_at: {type: Date},
 
 },{collection : 'statistics'});
 
-var statistics  = mongoose.model("statistics", userSchema);
+var statistics  = mongoose.model("statistics", statisticSchema);
 
-module.exports = users;
+module.exports = statistics;
