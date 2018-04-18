@@ -14,10 +14,20 @@ router.post('/find-by-user', findByUser);
 router.post('/get-list-nearby', getListNearBy);
 router.post('/find-lt-price', findLtPrice);
 router.get('/find-by-id/:id', findById);
-
+router.get('/statistic/num-post', getNumPost);
 router.post('/search', search); // advance search
 router.get('/full-search/:q', fullSearch);
 module.exports = router;
+
+function getNumPost(req, res) {
+    motel.count({}, function (err, rs) {
+        if(err) {
+            res.send(err);
+        } else {
+            res.json(rs);
+        }
+    });
+}
 
 function fullSearch(req, res) {
    motelService.fullSearch(req.params.q).then(function (motels) {
