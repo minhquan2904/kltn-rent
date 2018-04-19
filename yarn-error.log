@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js add express
+  /usr/bin/node /usr/share/yarn/bin/yarn.js remove agenda
 
 PATH: 
   /home/minhquan/.rvm/gems/ruby-2.4.1/bin:/home/minhquan/.rvm/gems/ruby-2.4.1@global/bin:/usr/share/rvm/rubies/ruby-2.4.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/share/rvm/bin
@@ -53,10 +53,11 @@ npm manifest:
       "body-parser": "^1.18.2",
       "bootstrap": "3.3.7",
       "core-js": "^2.4.1",
-      "express": "^4.16.2",
+      "express": "^4.16.3",
       "hammerjs": "^2.0.8",
       "jquery": "^3.3.1",
       "lodash": "^4.17.4",
+      "moment": "^2.22.1",
       "mongoose": "^4.13.5",
       "morgan": "^1.9.0",
       "multer": "^1.3.0",
@@ -391,6 +392,13 @@ Lockfile:
       mime-types "~2.1.16"
       negotiator "0.6.1"
   
+  accepts@~1.3.5:
+    version "1.3.5"
+    resolved "https://registry.yarnpkg.com/accepts/-/accepts-1.3.5.tgz#eb777df6011723a3b14e8a72c0805c8e86746bd2"
+    dependencies:
+      mime-types "~2.1.18"
+      negotiator "0.6.1"
+  
   acorn-dynamic-import@^2.0.0:
     version "2.0.2"
     resolved "https://registry.yarnpkg.com/acorn-dynamic-import/-/acorn-dynamic-import-2.0.2.tgz#c752bd210bef679501b6c6cb7fc84f8f47158cc4"
@@ -423,6 +431,17 @@ Lockfile:
   after@0.8.2:
     version "0.8.2"
     resolved "https://registry.yarnpkg.com/after/-/after-0.8.2.tgz#fedb394f9f0e02aa9768e702bda23b505fae7e1f"
+  
+  agenda@^1.0.3:
+    version "1.0.3"
+    resolved "https://registry.yarnpkg.com/agenda/-/agenda-1.0.3.tgz#736e9f12932303898639d779b9e40a44b10ff63b"
+    dependencies:
+      cron "~1.3.0"
+      date.js "~0.3.2"
+      debug "~3.1.0"
+      human-interval "~0.1.3"
+      moment-timezone "~0.5.0"
+      mongodb "~2.2.33"
   
   agent-base@2:
     version "2.1.1"
@@ -1599,6 +1618,12 @@ Lockfile:
       safe-buffer "^5.0.1"
       sha.js "^2.4.8"
   
+  cron@~1.3.0:
+    version "1.3.0"
+    resolved "https://registry.yarnpkg.com/cron/-/cron-1.3.0.tgz#7e459968eaf94e1a445be796ce402166c234659d"
+    dependencies:
+      moment-timezone "^0.5.x"
+  
   cross-spawn@^3.0.0:
     version "3.0.1"
     resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-3.0.1.tgz#1256037ecb9f0c5f79e3d6ef135e30770184b982"
@@ -1715,7 +1740,13 @@ Lockfile:
     version "0.1.4"
     resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
   
-  debug@*, debug@^3.1.0:
+  date.js@~0.3.2:
+    version "0.3.3"
+    resolved "https://registry.yarnpkg.com/date.js/-/date.js-0.3.3.tgz#ef1e92332f507a638795dbb985e951882e50bbda"
+    dependencies:
+      debug "~3.1.0"
+  
+  debug@*, debug@^3.1.0, debug@~3.1.0:
     version "3.1.0"
     resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
     dependencies:
@@ -1826,7 +1857,7 @@ Lockfile:
     version "1.1.1"
     resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.1.tgz#5783b4e1c459f06fa5ca27f991f3d06e7a310359"
   
-  depd@~1.1.1:
+  depd@~1.1.1, depd@~1.1.2:
     version "1.1.2"
     resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   
@@ -2005,6 +2036,10 @@ Lockfile:
   encodeurl@~1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.1.tgz#79e3d58655346909fe6f0f45a5de68103b294d20"
+  
+  encodeurl@~1.0.2:
+    version "1.0.2"
+    resolved "https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.2.tgz#ad3ff4c86ec2d029322f5a02c3a9a606c95b3f59"
   
   end-of-stream@^1.0.0, end-of-stream@^1.1.0:
     version "1.4.1"
@@ -2322,6 +2357,41 @@ Lockfile:
       utils-merge "1.0.1"
       vary "~1.1.2"
   
+  express@^4.16.3:
+    version "4.16.3"
+    resolved "https://registry.yarnpkg.com/express/-/express-4.16.3.tgz#6af8a502350db3246ecc4becf6b5a34d22f7ed53"
+    dependencies:
+      accepts "~1.3.5"
+      array-flatten "1.1.1"
+      body-parser "1.18.2"
+      content-disposition "0.5.2"
+      content-type "~1.0.4"
+      cookie "0.3.1"
+      cookie-signature "1.0.6"
+      debug "2.6.9"
+      depd "~1.1.2"
+      encodeurl "~1.0.2"
+      escape-html "~1.0.3"
+      etag "~1.8.1"
+      finalhandler "1.1.1"
+      fresh "0.5.2"
+      merge-descriptors "1.0.1"
+      methods "~1.1.2"
+      on-finished "~2.3.0"
+      parseurl "~1.3.2"
+      path-to-regexp "0.1.7"
+      proxy-addr "~2.0.3"
+      qs "6.5.1"
+      range-parser "~1.2.0"
+      safe-buffer "5.1.1"
+      send "0.16.2"
+      serve-static "1.13.2"
+      setprototypeof "1.1.0"
+      statuses "~1.4.0"
+      type-is "~1.6.16"
+      utils-merge "1.0.1"
+      vary "~1.1.2"
+  
   extend-shallow@^2.0.1:
     version "2.0.1"
     resolved "https://registry.yarnpkg.com/extend-shallow/-/extend-shallow-2.0.1.tgz#51af7d614ad9a9f610ea1bafbb989d6b1c56890f"
@@ -2458,6 +2528,18 @@ Lockfile:
       on-finished "~2.3.0"
       parseurl "~1.3.2"
       statuses "~1.3.1"
+      unpipe "~1.0.0"
+  
+  finalhandler@1.1.1:
+    version "1.1.1"
+    resolved "https://registry.yarnpkg.com/finalhandler/-/finalhandler-1.1.1.tgz#eebf4ed840079c83f4249038c9d703008301b105"
+    dependencies:
+      debug "2.6.9"
+      encodeurl "~1.0.2"
+      escape-html "~1.0.3"
+      on-finished "~2.3.0"
+      parseurl "~1.3.2"
+      statuses "~1.4.0"
       unpipe "~1.0.0"
   
   find-cache-dir@^1.0.0:
@@ -3062,6 +3144,10 @@ Lockfile:
       debug "2"
       extend "3"
   
+  human-interval@~0.1.3:
+    version "0.1.6"
+    resolved "https://registry.yarnpkg.com/human-interval/-/human-interval-0.1.6.tgz#0057973454764c3abcbeb2aed612fc9644e68488"
+  
   iconv-lite@0.4.19:
     version "0.4.19"
     resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.19.tgz#f7468f60135f5e5dad3399c0a81be9a1603a082b"
@@ -3153,6 +3239,10 @@ Lockfile:
   ipaddr.js@1.5.2:
     version "1.5.2"
     resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-1.5.2.tgz#d4b505bde9946987ccf0fc58d9010ff9607e3fa0"
+  
+  ipaddr.js@1.6.0:
+    version "1.6.0"
+    resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-1.6.0.tgz#e3fa357b773da619f26e95f049d055c72796f86b"
   
   is-accessor-descriptor@^0.1.6:
     version "0.1.6"
@@ -4026,11 +4116,21 @@ Lockfile:
     version "1.30.0"
     resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.30.0.tgz#74c643da2dd9d6a45399963465b26d5ca7d71f01"
   
+  mime-db@~1.33.0:
+    version "1.33.0"
+    resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.33.0.tgz#a3492050a5cb9b63450541e39d9788d2272783db"
+  
   mime-types@^2.1.12, mime-types@~2.1.11, mime-types@~2.1.15, mime-types@~2.1.16, mime-types@~2.1.17, mime-types@~2.1.7:
     version "2.1.17"
     resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.17.tgz#09d7a393f03e995a79f8af857b70a9e0ab16557a"
     dependencies:
       mime-db "~1.30.0"
+  
+  mime-types@~2.1.18:
+    version "2.1.18"
+    resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.18.tgz#6f323f60a83d11146f831ff11fd66e2fe5503bb8"
+    dependencies:
+      mime-db "~1.33.0"
   
   mime@1.4.1:
     version "1.4.1"
@@ -4105,9 +4205,26 @@ Lockfile:
     dependencies:
       minimist "0.0.8"
   
+  moment-timezone@^0.5.x, moment-timezone@~0.5.0:
+    version "0.5.16"
+    resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.16.tgz#661717d5f55b4d2c2e002262d726c83785192a5a"
+    dependencies:
+      moment ">= 2.9.0"
+  
+  "moment@>= 2.9.0", moment@^2.22.1:
+    version "2.22.1"
+    resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.1.tgz#529a2e9bf973f259c9643d237fda84de3a26e8ad"
+  
   mongodb-core@2.1.18:
     version "2.1.18"
     resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-2.1.18.tgz#4c46139bdf3a1f032ded91db49f38eec01659050"
+    dependencies:
+      bson "~1.0.4"
+      require_optional "~1.0.0"
+  
+  mongodb-core@2.1.19:
+    version "2.1.19"
+    resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-2.1.19.tgz#00fbd5e5a3573763b9171cfd844e60a8f2a3a18b"
     dependencies:
       bson "~1.0.4"
       require_optional "~1.0.0"
@@ -4118,6 +4235,14 @@ Lockfile:
     dependencies:
       es6-promise "3.2.1"
       mongodb-core "2.1.18"
+      readable-stream "2.2.7"
+  
+  mongodb@~2.2.33:
+    version "2.2.35"
+    resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-2.2.35.tgz#cd1b5af8a9463e3f9a787fa5b3d05565579730f9"
+    dependencies:
+      es6-promise "3.2.1"
+      mongodb-core "2.1.19"
       readable-stream "2.2.7"
   
   mongoose@^4.13.5:
@@ -4905,6 +5030,13 @@ Lockfile:
       forwarded "~0.1.2"
       ipaddr.js "1.5.2"
   
+  proxy-addr@~2.0.3:
+    version "2.0.3"
+    resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-2.0.3.tgz#355f262505a621646b3130a728eb647e22055341"
+    dependencies:
+      forwarded "~0.1.2"
+      ipaddr.js "1.6.0"
+  
   prr@~1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/prr/-/prr-1.0.1.tgz#d3fc114ba06995a45ec6893f484ceb1d78f5f476"
@@ -5519,6 +5651,24 @@ Lockfile:
       range-parser "~1.2.0"
       statuses "~1.3.1"
   
+  send@0.16.2:
+    version "0.16.2"
+    resolved "https://registry.yarnpkg.com/send/-/send-0.16.2.tgz#6ecca1e0f8c156d141597559848df64730a6bbc1"
+    dependencies:
+      debug "2.6.9"
+      depd "~1.1.2"
+      destroy "~1.0.4"
+      encodeurl "~1.0.2"
+      escape-html "~1.0.3"
+      etag "~1.8.1"
+      fresh "0.5.2"
+      http-errors "~1.6.2"
+      mime "1.4.1"
+      ms "2.0.0"
+      on-finished "~2.3.0"
+      range-parser "~1.2.0"
+      statuses "~1.4.0"
+  
   serialize-javascript@^1.4.0:
     version "1.4.0"
     resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-1.4.0.tgz#7c958514db6ac2443a8abc062dc9f7886a7f6005"
@@ -5553,6 +5703,15 @@ Lockfile:
       escape-html "~1.0.3"
       parseurl "~1.3.2"
       send "0.16.1"
+  
+  serve-static@1.13.2:
+    version "1.13.2"
+    resolved "https://registry.yarnpkg.com/serve-static/-/serve-static-1.13.2.tgz#095e8472fd5b46237db50ce486a43f4b86c6cec1"
+    dependencies:
+      encodeurl "~1.0.2"
+      escape-html "~1.0.3"
+      parseurl "~1.3.2"
+      send "0.16.2"
   
   set-blocking@^2.0.0, set-blocking@~2.0.0:
     version "2.0.0"
@@ -5891,7 +6050,7 @@ Lockfile:
       define-property "^0.2.5"
       object-copy "^0.1.0"
   
-  "statuses@>= 1.3.1 < 2":
+  "statuses@>= 1.3.1 < 2", statuses@~1.4.0:
     version "1.4.0"
     resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.4.0.tgz#bb73d446da2796106efcc1b601a253d6c46bd087"
   
@@ -6280,6 +6439,13 @@ Lockfile:
     dependencies:
       media-typer "0.3.0"
       mime-types "~2.1.15"
+  
+  type-is@~1.6.16:
+    version "1.6.16"
+    resolved "https://registry.yarnpkg.com/type-is/-/type-is-1.6.16.tgz#f89ce341541c672b25ee7ae3c73dee3b2be50194"
+    dependencies:
+      media-typer "0.3.0"
+      mime-types "~2.1.18"
   
   typedarray@^0.0.6:
     version "0.0.6"

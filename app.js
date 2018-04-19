@@ -11,7 +11,9 @@ var config = require('./server/config/index');
 mongoose.Promise = global.Promise;
 
 mongoose.connect( config.getDbConnectionString(),{useMongoClient : true})
-    .then(() => console.log('connection successfull'))
+    .then(() => {
+      console.log('connection successfull');
+    })
     .catch((err) => console.log(err));
 
 //Router
@@ -60,4 +62,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+// active job
+
+
 module.exports = app;
+
