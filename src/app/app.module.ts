@@ -8,7 +8,7 @@ import { AuthGuard } from './_guards/index';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { customHttpProvider, NullDefaultValueDirective } from './_helpers/index';
 import { FileSelectDirective, FileDropDirective, FileUploader } from 'ng2-file-upload/ng2-file-upload';
-import { 
+import { StatisticSerivce,
   AuthenticationService, AlertService, MotelService, CommentService, LocationService, LevelService } from './_services/index';
 import { AgmCoreModule } from '@agm/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -67,6 +67,8 @@ import { MapServiceComponent } from './main/layout/map-service/map-service.compo
 import { UserInterfaceComponent } from './user/user-interface/user-interface.component';
 import { AdvanceSearchComponent } from './main/layout/advance-search/advance-search.component';
 import { MapMarkerMoveComponent } from './main/layout/map-marker-move/map-marker-move.component';
+import { AdminNavComponent } from './admin/layout/admin-nav/admin-nav.component';
+import { AdminBreadcrumComponent } from './admin/layout/admin-breadcrum/admin-breadcrum.component';
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full' , component: HomeComponent},
   { path: 'home', component: HomeComponent},
@@ -105,7 +107,8 @@ const appRoutes: Routes = [
     CommentBoxComponent,
     FileSelectDirective,
     FailPageComponent,
-    FormComponent, DialogOverviewExampleDialog, MapServiceComponent, UserInterfaceComponent, AdvanceSearchComponent, MapMarkerMoveComponent
+    FormComponent, DialogOverviewExampleDialog, MapServiceComponent,
+    UserInterfaceComponent, AdvanceSearchComponent, MapMarkerMoveComponent, AdminNavComponent, AdminBreadcrumComponent
     ],
     entryComponents: [FormComponent, DialogOverviewExampleDialog, ItemComponent, UserContactDialog, LoginComponent, RegisterDialog],
   imports: [
@@ -155,6 +158,7 @@ const appRoutes: Routes = [
   providers: [
     AuthGuard,
     LevelService,
+    StatisticSerivce,
     AuthenticationService,
     AlertService,
     LocationService,

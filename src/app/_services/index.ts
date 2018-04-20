@@ -8,3 +8,4 @@ export * from './location.service';
 export * from './api.service';
 export * from './location.service';
 export * from './level.service';
+export * from './statistic.service';

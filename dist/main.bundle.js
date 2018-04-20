@@ -558,6 +558,9 @@ var CommentService = (function () {
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__level_service__ = __webpack_require__("./src/app/_services/level.service.ts");
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_8__level_service__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__statistic_service__ = __webpack_require__("./src/app/_services/statistic.service.ts");
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_9__statistic_service__["a"]; });
+
 
 
 
@@ -852,6 +855,44 @@ var NoteBookService = (function () {
 
 /***/ }),
 
+/***/ "./src/app/_services/statistic.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StatisticSerivce; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var StatisticSerivce = (function () {
+    function StatisticSerivce(http) {
+        this.http = http;
+    }
+    StatisticSerivce.prototype.getInfo = function () {
+        return this.http.get('/statistic/get-info');
+    };
+    StatisticSerivce = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]])
+    ], StatisticSerivce);
+    return StatisticSerivce;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/_services/window.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -888,14 +929,14 @@ var WindowService = (function () {
 /***/ "./src/app/admin/admin-page/admin-page.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "/* navbar */\n.navbar{\n    min-height: 33px!important;\n    margin-bottom: 0;\n    border-radius: 0;   \n}\n.navbar-nav > li > a, .navbar-brand {\n    padding-top: 6px !important;\n    padding-bottom: 6px !important;\n    height: 33px;\n}\n.navbar-default {\n    background-color: #e74c3c;\n    border-color: #c0392b;\n  }\n.navbar-default .navbar-brand {\n    color: #ecf0f1;\n  }\n.navbar-default .navbar-brand:hover,\n  .navbar-default .navbar-brand:focus {\n    color: #ecdbff;\n  }\n.navbar-default .navbar-text {\n    color: #ecf0f1;\n  }\n.navbar-default .navbar-nav > li > a {\n    color: #ecf0f1;\n  }\n.navbar-default .navbar-nav > li > a:hover,\n  .navbar-default .navbar-nav > li > a:focus {\n    color: #ecdbff;\n  }\n.navbar-default .navbar-nav > .active > a,\n  .navbar-default .navbar-nav > .active > a:hover,\n  .navbar-default .navbar-nav > .active > a:focus {\n    color: #ecdbff;\n    background-color: #c0392b;\n  }\n.navbar-default .navbar-nav > .open > a,\n  .navbar-default .navbar-nav > .open > a:hover,\n  .navbar-default .navbar-nav > .open > a:focus {\n    color: #ecdbff;\n    background-color: #c0392b;\n  }\n.navbar-default .navbar-toggle {\n    border-color: #c0392b;\n  }\n.navbar-default .navbar-toggle:hover,\n  .navbar-default .navbar-toggle:focus {\n    background-color: #c0392b;\n  }\n.navbar-default .navbar-toggle .icon-bar {\n    background-color: #ecf0f1;\n  }\n.navbar-default .navbar-collapse,\n  .navbar-default .navbar-form {\n    border-color: #ecf0f1;\n  }\n.navbar-default .navbar-link {\n    color: #ecf0f1;\n  }\n.navbar-default .navbar-link:hover {\n    color: #ecdbff;\n  }\n.main-color-bg{\n    background-color: #e74c3c !important;\n    border-color: #c0392b !important;\n    color: #ffffff;\n  }\n/* header */\n#header{\n    background: #333333;\n    color: #ffffff;\n    padding-bottom: 10px;\n    margin-bottom: 15px;\n}\n#header .create{\n    padding-top: 20px;\n}\n/* breadcrum */\n.breadcrumb{\n    background: #cccccc;\n    color: #333333;\n}\n/* progress bar */\n.progress-bar{\n    background: #333333;\n    color: #ffffff;\n}\n.dash-box{\n    text-align: center;\n}\n@media (max-width: 767px) {\n    .navbar-default .navbar-nav .open .dropdown-menu > li > a {\n      color: #ecf0f1;\n    }\n    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,\n    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {\n      color: #ecdbff;\n    }\n    .navbar-default .navbar-nav .open .dropdown-menu > .active > a,\n    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,\n    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {\n      color: #ecdbff;\n      background-color: #c0392b;\n    }\n  }\n\n"
+module.exports = ".main-color-bg{\n  background-color: #e74c3c !important;\n  border-color: #c0392b !important;\n  color: #ffffff;\n}\n\n\n\n"
 
 /***/ }),
 
 /***/ "./src/app/admin/admin-page/admin-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default\">\n    <div class=\"container\">\n      <div class=\"navbar-header\">\n        <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n          <span class=\"sr-only\">Toggle navigation</span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n        <a class=\"navbar-brand\" href=\"#\">Project name</a>\n      </div>\n      <div id=\"navbar\" class=\"collapse navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n          <li class=\"active\"><a href=\"#\">Home</a></li>\n          <li><a href=\"#about\">About</a></li>\n          <li><a href=\"#contact\">Contact</a></li>\n        </ul>\n\n\n        <ul class=\"nav navbar-nav navbar-right\">\n            <li><a href=\"#\">User</a></li>\n            <li><a href=\"#about\">Logout</a></li>\n            <li><a href=\"#contact\">Contact</a></li>\n          </ul>\n      </div><!--/.nav-collapse -->\n    </div>\n  </nav>\n\n  <header id=\"header\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-10\">\n                <h1><span class=\"glyphicon glyphicon-cog\" aria-hidden=\"true\"> </span>Dashboard <small>Manage Your Site</small></h1>\n            </div>\n            <div class=\"col-md-2\">\n                <div class=\"dropdown create\">\n                    <button class=\"btn btn-default dropdown-toggle\" type=\"button\" id=\"dropdownMenu1\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"true\">\n                      ST...\n                      <span class=\"caret\"></span>\n                    </button>\n                    <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu1\">\n                      <li><a href=\"#\">Action</a></li>\n                      <li><a href=\"#\">Another action</a></li>\n                      <li><a href=\"#\">Something else here</a></li>\n                      <li role=\"separator\" class=\"divider\"></li>\n                      <li><a href=\"#\">Separated link</a></li>\n                    </ul>\n                  </div>\n            </div>\n        </div>\n    </div>\n  </header> \n\n  <section id=\"breadcrumb\">\n    <div class=\"container\">\n        <ol class=\"breadcrumb\">\n            <li class=\"active\">Dashboard</li>\n        </ol>\n    </div>\n  </section>\n\n  <section id=\"main\">\n      <div class=\"container\">\n          <div class=\"row\">\n              <div class=\"col-md-3\">\n                <div class=\"list-group\">\n                    <a href=\"#\" class=\"list-group-item active main-color-bg\">\n                        <span class=\"glyphicon glyphicon-cog\" aria-hidden=\"true\"></span> Dashboard \n                    </a>\n                    <a href=\"#\" class=\"list-group-item\"><span class=\"glyphicon glyphicon-list-alt\" aria-hidden=\"true\"></span> Pages <span class=\"badge\">12</span></a>\n                    <a href=\"#\" class=\"list-group-item\"><span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span> Post <span class=\"badge\">34</span></a>\n                    <a href=\"#\" class=\"list-group-item\"><span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span> Users <span class=\"badge\">56</span></a>\n                    \n                </div>\n\n                <div class=\"well\">\n                    <h4>Post verified</h4>\n                    <div class=\"progress\">\n                        <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"60\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 60%;\">\n                          60%\n                        </div>\n                      </div>\n                </div>\n              </div>\n              <div class=\"col-md-9\">\n                    <div class=\"panel panel-default\">\n                        <div class=\"panel-heading main-color-bg\">Your website overview</div>\n                        <div class=\"panel-body\">\n                            <div class=\"col-md-3\">\n                                <div class=\"well dash-box\">\n                                    <h2><div class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></div> 56</h2>\n                                    <h4>Users</h4>\n                                </div>\n                            </div>\n                            <div class=\"col-md-3\">\n                                <div class=\"well dash-box\">\n                                    <h2><div class=\"glyphicon glyphicon-list-alt\" aria-hidden=\"true\"></div> 56</h2>\n                                    <h4>Pages</h4>\n                                </div>\n                            </div>\n                            <div class=\"col-md-3\">\n                                <div class=\"well dash-box\">\n                                    <h2><div class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></div> 56</h2>\n                                    <h4>Posts</h4>\n                                </div>\n                            </div>\n                            <div class=\"col-md-3\">\n                                <div class=\"well dash-box\">\n                                    <h2><div class=\"glyphicon glyphicon-stats\" aria-hidden=\"true\"></div> 56</h2>\n                                    <h4>Visitors</h4>\n                                </div>\n                            </div>\n                        </div>\n                    </div> <!-- end first panel-->\n\n                    <!-- Lastest user -->\n                    <div class=\"panel panel-default\">\n                        <div class=\"panel-heading\">Lastest Users</div>\n                        <div class=\"panel-body\">\n                            <table class=\"table table-striped table-hover\">\n                                <thead>\n                                    <tr>\n                                        <th>Firstname</th>\n                                        <th>Lastname</th>\n                                        <th>Email</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr>\n                                        <td>John</td>\n                                        <td>Doe</td>\n                                        <td>john@example.com</td>\n                                    </tr>\n                                    <tr>\n                                        <td>Mary</td>\n                                        <td>Moe</td>\n                                        <td>mary@example.com</td>\n                                    </tr>\n                                    <tr>\n                                        <td>July</td>\n                                        <td>Dooley</td>\n                                        <td>july@example.com</td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </div>\n                    </div>\n              </div> \n            </div>\n        </div>\n    </section>\n    <app-footer></app-footer>"
+module.exports = "<app-admin-nav></app-admin-nav>\n \n\n <app-admin-breadcrum></app-admin-breadcrum>\n<alert></alert>\n  <section id=\"main\">\n      <div class=\"container\">\n          <div class=\"row\">\n              <div class=\"col-md-3\">\n                <div class=\"list-group\">\n                    <a href=\"#\" class=\"list-group-item active main-color-bg\">\n                        <span class=\"glyphicon glyphicon-cog\" aria-hidden=\"true\"></span> Dashboard \n                    </a>\n                    <a href=\"#\" class=\"list-group-item\"><span class=\"glyphicon glyphicon-list-alt\" aria-hidden=\"true\"></span> Pages <span class=\"badge\">12</span></a>\n                    <a href=\"#\" class=\"list-group-item\"><span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span> Post <span class=\"badge\">{{static.num_motels}}</span></a>\n                    <a href=\"#\" class=\"list-group-item\"><span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span> Users <span class=\"badge\">56</span></a>\n                    \n                </div>\n\n                <div class=\"well\">\n                    <h4>Post verified</h4>\n                    <div class=\"progress\">\n                        <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"60\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 60%;\">\n                          60%\n                        </div>\n                      </div>\n                </div>\n              </div>\n              <div class=\"col-md-9\">\n                    <div class=\"panel panel-default\">\n                        <div class=\"panel-heading main-color-bg\">Your website overview</div>\n                        <div class=\"panel-body\">\n                            <div class=\"col-md-3\">\n                                <div class=\"well dash-box\">\n                                    <h2><div class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></div> {{static.num_users}}</h2>\n                                    <h4>Users</h4>\n                                </div>\n                            </div>\n                            <div class=\"col-md-3\">\n                                <div class=\"well dash-box\">\n                                    <h2><div class=\"glyphicon glyphicon-list-alt\" aria-hidden=\"true\"></div> 56</h2>\n                                    <h4>Pages</h4>\n                                </div>\n                            </div>\n                            <div class=\"col-md-3\">\n                                <div class=\"well dash-box\">\n                                    <h2><div class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></div> {{static.num_motels}}</h2>\n                                    <h4>Posts</h4>\n                                </div>\n                            </div>\n                            <div class=\"col-md-3\">\n                                <div class=\"well dash-box\">\n                                    <h2><div class=\"glyphicon glyphicon-stats\" aria-hidden=\"true\"></div>{{static.visitors}}</h2>\n                                    <h4>Visitors</h4>\n                                </div>\n                            </div>\n                        </div>\n                    </div> <!-- end first panel-->\n\n                    <!-- Lastest user -->\n                    <div class=\"panel panel-default\">\n                        <div class=\"panel-heading\">Lastest Users</div>\n                        <div class=\"panel-body\">\n                            <table class=\"table table-striped table-hover\">\n                                <thead>\n                                    <tr>\n                                        <th>Firstname</th>\n                                        <th>Lastname</th>\n                                        <th>Email</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr>\n                                        <td>John</td>\n                                        <td>Doe</td>\n                                        <td>john@example.com</td>\n                                    </tr>\n                                    <tr>\n                                        <td>Mary</td>\n                                        <td>Moe</td>\n                                        <td>mary@example.com</td>\n                                    </tr>\n                                    <tr>\n                                        <td>July</td>\n                                        <td>Dooley</td>\n                                        <td>july@example.com</td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </div>\n                    </div>\n              </div> \n            </div>\n        </div>\n    </section>\n    <app-footer></app-footer>"
 
 /***/ }),
 
@@ -904,6 +945,68 @@ module.exports = "<nav class=\"navbar navbar-default\">\n    <div class=\"contai
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminPageComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_index__ = __webpack_require__("./src/app/_services/index.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AdminPageComponent = (function () {
+    function AdminPageComponent(statisticService, alertService) {
+        this.statisticService = statisticService;
+        this.alertService = alertService;
+        this.static = {};
+    }
+    AdminPageComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.statisticService.getInfo().subscribe(function (res) {
+            _this.static = res.json();
+            // console.log(this.static);
+        }, function (err) {
+            _this.alertService.error(err);
+        });
+    };
+    AdminPageComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-admin-page',
+            template: __webpack_require__("./src/app/admin/admin-page/admin-page.component.html"),
+            styles: [__webpack_require__("./src/app/admin/admin-page/admin-page.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_index__["g" /* StatisticSerivce */], __WEBPACK_IMPORTED_MODULE_1__services_index__["a" /* AlertService */]])
+    ], AdminPageComponent);
+    return AdminPageComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/layout/admin-breadcrum/admin-breadcrum.component.css":
+/***/ (function(module, exports) {
+
+module.exports = "/* breadcrum */\n.breadcrumb{\n    background: #cccccc;\n    color: #333333;\n}\n/* progress bar */\n.progress-bar{\n    background: #333333;\n    color: #ffffff;\n}\n.dash-box{\n    text-align: center;\n}\n.main-color-bg{\n    background-color: #e74c3c !important;\n    border-color: #c0392b !important;\n    color: #ffffff;\n  }"
+
+/***/ }),
+
+/***/ "./src/app/admin/layout/admin-breadcrum/admin-breadcrum.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<section id=\"breadcrumb\">\n    <div class=\"container\">\n        <ol class=\"breadcrumb\">\n            <li class=\"active\">Dashboard</li>\n        </ol>\n    </div>\n  </section>"
+
+/***/ }),
+
+/***/ "./src/app/admin/layout/admin-breadcrum/admin-breadcrum.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminBreadcrumComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -915,20 +1018,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var AdminPageComponent = (function () {
-    function AdminPageComponent() {
+var AdminBreadcrumComponent = (function () {
+    function AdminBreadcrumComponent() {
     }
-    AdminPageComponent.prototype.ngOnInit = function () {
+    AdminBreadcrumComponent.prototype.ngOnInit = function () {
     };
-    AdminPageComponent = __decorate([
+    AdminBreadcrumComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-admin-page',
-            template: __webpack_require__("./src/app/admin/admin-page/admin-page.component.html"),
-            styles: [__webpack_require__("./src/app/admin/admin-page/admin-page.component.css")]
+            selector: 'app-admin-breadcrum',
+            template: __webpack_require__("./src/app/admin/layout/admin-breadcrum/admin-breadcrum.component.html"),
+            styles: [__webpack_require__("./src/app/admin/layout/admin-breadcrum/admin-breadcrum.component.css")]
         }),
         __metadata("design:paramtypes", [])
-    ], AdminPageComponent);
-    return AdminPageComponent;
+    ], AdminBreadcrumComponent);
+    return AdminBreadcrumComponent;
 }());
 
 
@@ -985,10 +1088,60 @@ var AdminMenuComponent = (function () {
 
 /***/ }),
 
+/***/ "./src/app/admin/layout/admin-nav/admin-nav.component.css":
+/***/ (function(module, exports) {
+
+module.exports = "/* navbar */\n.navbar{\n    min-height: 33px!important;\n    margin-bottom: 0;\n    border-radius: 0;   \n}\n.navbar-nav > li > a, .navbar-brand {\n    padding-top: 6px !important;\n    padding-bottom: 6px !important;\n    height: 33px;\n}\n.navbar-default {\n    background-color: #e74c3c;\n    border-color: #c0392b;\n  }\n.navbar-default .navbar-brand {\n    color: #ecf0f1;\n  }\n.navbar-default .navbar-brand:hover,\n  .navbar-default .navbar-brand:focus {\n    color: #ecdbff;\n  }\n.navbar-default .navbar-text {\n    color: #ecf0f1;\n  }\n.navbar-default .navbar-nav > li > a {\n    color: #ecf0f1;\n  }\n.navbar-default .navbar-nav > li > a:hover,\n  .navbar-default .navbar-nav > li > a:focus {\n    color: #ecdbff;\n  }\n.navbar-default .navbar-nav > .active > a,\n  .navbar-default .navbar-nav > .active > a:hover,\n  .navbar-default .navbar-nav > .active > a:focus {\n    color: #ecdbff;\n    background-color: #c0392b;\n  }\n.navbar-default .navbar-nav > .open > a,\n  .navbar-default .navbar-nav > .open > a:hover,\n  .navbar-default .navbar-nav > .open > a:focus {\n    color: #ecdbff;\n    background-color: #c0392b;\n  }\n.navbar-default .navbar-toggle {\n    border-color: #c0392b;\n  }\n.navbar-default .navbar-toggle:hover,\n  .navbar-default .navbar-toggle:focus {\n    background-color: #c0392b;\n  }\n.navbar-default .navbar-toggle .icon-bar {\n    background-color: #ecf0f1;\n  }\n.navbar-default .navbar-collapse,\n  .navbar-default .navbar-form {\n    border-color: #ecf0f1;\n  }\n.navbar-default .navbar-link {\n    color: #ecf0f1;\n  }\n.navbar-default .navbar-link:hover {\n    color: #ecdbff;\n  }\n.main-color-bg{\n    background-color: #e74c3c !important;\n    border-color: #c0392b !important;\n    color: #ffffff;\n  }\n/* header */\n#header{\n    background: #333333;\n    color: #ffffff;\n    padding-bottom: 10px;\n    margin-bottom: 15px;\n}\n#header .create{\n    padding-top: 20px;\n}\n@media (max-width: 767px) {\n  .navbar-default .navbar-nav .open .dropdown-menu > li > a {\n    color: #ecf0f1;\n  }\n  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,\n  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {\n    color: #ecdbff;\n  }\n  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,\n  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,\n  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {\n    color: #ecdbff;\n    background-color: #c0392b;\n  }\n}"
+
+/***/ }),
+
+/***/ "./src/app/admin/layout/admin-nav/admin-nav.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" routerLink=\"['/home']\">Rent</a>\n    </div>\n    <div id=\"navbar\" class=\"collapse navbar-collapse\">\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\"><a routerLink=\"['/home']\">Home</a></li>\n        <li><a href=\"#about\">About</a></li>\n        <li><a href=\"#contact\">Contact</a></li>\n      </ul>\n\n\n      <ul class=\"nav navbar-nav navbar-right\">\n          <li><a href=\"#\">User</a></li>\n          <li><a [routerLink]=\"['/login']\">Logout</a></li>\n          <li><a href=\"#contact\">Contact</a></li>\n        </ul>\n    </div><!--/.nav-collapse -->\n  </div>\n</nav>\n<header id=\"header\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-10\">\n                <h1><span class=\"glyphicon glyphicon-cog\" aria-hidden=\"true\"> </span>Dashboard <small>Manage Your Site</small></h1>\n            </div>\n            <div class=\"col-md-2\">\n                <div class=\"dropdown create\">\n                    <button class=\"btn btn-default dropdown-toggle\" type=\"button\" id=\"dropdownMenu1\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"true\">\n                        ST...\n                        <span class=\"caret\"></span>\n                    </button>\n                    <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu1\">\n                        <li><a href=\"#\">Action</a></li>\n                        <li><a href=\"#\">Another action</a></li>\n                        <li><a href=\"#\">Something else here</a></li>\n                        <li role=\"separator\" class=\"divider\"></li>\n                        <li><a href=\"#\">Separated link</a></li>\n                    </ul>\n                    </div>\n            </div>\n        </div>\n    </div>\n</header>"
+
+/***/ }),
+
+/***/ "./src/app/admin/layout/admin-nav/admin-nav.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminNavComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AdminNavComponent = (function () {
+    function AdminNavComponent() {
+    }
+    AdminNavComponent.prototype.ngOnInit = function () {
+    };
+    AdminNavComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-admin-nav',
+            template: __webpack_require__("./src/app/admin/layout/admin-nav/admin-nav.component.html"),
+            styles: [__webpack_require__("./src/app/admin/layout/admin-nav/admin-nav.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AdminNavComponent);
+    return AdminNavComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/app.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n@import url('https://fonts.googleapis.com/css?family=Ubuntu');\r\n/*\r\nAuthor: Bootstrapthemes\r\nAuthor URI: http://bootstrapthemes.co\r\n*/\r\n.router-outlet {\r\n    margin-top: 65px;\r\n\r\n}\r\n/* Portrait tablets and medium desktops */\r\n@media (min-width: 992px) and (max-width: 1199px) {\r\n    body {\r\n        font-size: 1rem;\r\n    }\r\n    .call_us_menu .call_us_bottom .phone_numbr a{\r\n        font-size: 1.125rem;\r\n        font-family: 'latobold';\r\n        color: #fff;\r\n    }\r\n    .main_home_searce_domain_content input[type=\"text\"] {\r\n        min-width: 14.1875rem;\r\n    }\r\n    .form-control {\r\n        width: 5.125rem;\r\n        padding: 5px;\r\n    }\r\n    .main_home_searce_domain_content input[type=\"submit\"] {\r\n        max-width: 8.6875rem;\r\n        padding: 0px 7px;\r\n    }\r\n    .single_webhost_left_content h3{\r\n        font-size: 2rem;\r\n    }\r\n    .feature .main_feature_content_area .main_feature_content .single_feature h3 {\r\n        font-size: 1.575rem;\r\n    }\r\n\r\n\r\n}\r\n/* Portrait tablets and small desktops */\r\n@media  (min-width:769px) and (max-width: 991px) {\r\n    html {\r\n        font-size: 90%;\r\n    }\r\n    .call_us_menu .call_us_bottom .phone_numbr a{\r\n        font-size: 1.025rem;\r\n        font-family: 'latobold';\r\n        color: #fff;\r\n    }\r\n    .main_home_searce_domain_content input[type=\"text\"] {\r\n        min-width: 10.1875rem;\r\n        font-size: 0.875rem;\r\n    }\r\n    .form-control {\r\n        width: 4.125rem;\r\n        height: 56px;\r\n        font-size: 0.875rem;\r\n        padding: 2px;\r\n    }    \r\n    .main_home_searce_domain_content input[type=\"submit\"] {\r\n        max-width: 6.6875rem;\r\n        height: 56px;\r\n        padding: 0px 5px;\r\n        font-size: 0.675rem;\r\n    }  \r\n    .single_webhost_left_content h3{\r\n        font-size: 1.5rem;\r\n    }\r\n    .single_webhost_right_content h3{\r\n        font-size: 1.5rem;\r\n    }\r\n    .main_webhost_service_area .single_webhost_right {\r\n        padding-top: 181px;\r\n    }\r\n    .feature .main_feature_content_area .main_feature_content .single_feature h3 {\r\n        font-size: 1.175rem;\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n}\r\n/* Landscape phones and portrait tablets */\r\n@media (min-width:480px) and (max-width: 768px) {\r\n    html {\r\n        font-size: 80%;\r\n    }\r\n    .header_top_bar{\r\n        display: none;\r\n    }\r\n    /*.call_us_menu{\r\n        text-align: center;\r\n    }\r\n    .call_us_menu .call_us_bottom {\r\n        text-align: center;\r\n    }\r\n    .call_us_menu p{\r\n        margin-bottom: 20px;\r\n    }\r\n    .call_us_menu .call_us_bottom .phone_numbr a {\r\n        font-size: 1.025rem;\r\n    }\r\n    .call_us_menu .phone_numbr {\r\n        padding-left: 10px;\r\n    }*/\r\n    .main_webhost_service_area .single_webhost_left_content p {\r\n        max-width: 60%;\r\n        margin: 0 auto;\r\n    }\r\n    .main_webhost_service_area .single_webhost_right .single_webhost_right_content p {\r\n        max-width: 60%;\r\n        margin: 0 auto;\r\n    }\r\n    .feature .main_feature_content_area .main_feature_content .single_feature {\r\n        margin-bottom: 30px;\r\n    }\r\n    .feature .main_feature_content_area .main_feature_content .single_feature p {\r\n        max-width: 50%;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    .clients .main_clients_area .main_clients_top_content .client_left_content {\r\n        text-align: center;\r\n        margin: 0 auto;\r\n        max-width: 60%;\r\n    }\r\n    .clients .main_clients_area .main_clients_top_content .client_left_content p {\r\n        font-size: 0.875rem;\r\n        font-family: 'ralewaylight';\r\n        max-width: 70%;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    .clients .main_clients_area .main_clients_top_content .single_right_client{\r\n        text-align: center;\r\n        margin-top:20px;\r\n    }\r\n    .main_clients_bottom_content .single_client_bottom {\r\n        max-width: 50%;\r\n        margin: 0 auto;\r\n        margin-bottom: 70px;\r\n    }\r\n    .main_pricing{\r\n        text-align: center;\r\n    }\r\n    .single_right_planig{\r\n        text-align: center;\r\n    }\r\n    .contactwithmap_menu{\r\n        text-align: center;\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n}\r\n/* Landscape phones and smaller */\r\n@media (min-width:320px) and (max-width: 479px) {\r\n    html {\r\n        font-size: 65%;\r\n    }\r\n    .header_top_bar{\r\n        display: none;\r\n    }\r\n    .header_top_bar{\r\n        display: none;\r\n    }\r\n    .navbar-brand>img {\r\n        max-width: 70%;\r\n    }\r\n    .main_webhost_service_area .single_webhost_left_content p {\r\n        max-width: 60%;\r\n        margin: 0 auto;\r\n    }\r\n    .main_webhost_service_area .single_webhost_right .single_webhost_right_content p {\r\n        max-width: 60%;\r\n        margin: 0 auto;\r\n    }\r\n    .feature .main_feature_content_area .main_feature_content .single_feature {\r\n        margin-bottom: 30px;\r\n    }\r\n    .feature .main_feature_content_area .main_feature_content .single_feature p {\r\n        max-width: 50%;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    .clients .main_clients_area .main_clients_top_content .client_left_content {\r\n        text-align: center;\r\n        margin: 0 auto;\r\n        max-width: 60%;\r\n    }\r\n    .clients .main_clients_area .main_clients_top_content .client_left_content p {\r\n        font-size: 0.875rem;\r\n        font-family: 'ralewaylight';\r\n        max-width: 70%;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    .clients .main_clients_area .main_clients_top_content .single_right_client{\r\n        text-align: center;\r\n        margin-top:20px;\r\n    }\r\n    .main_clients_bottom_content .single_client_bottom {\r\n        max-width: 50%;\r\n        margin: 0 auto;\r\n        margin-bottom: 70px;\r\n    }\r\n    .main_pricing{\r\n        text-align: center;\r\n    }\r\n    .single_right_planig{\r\n        text-align: center;\r\n    }\r\n    .contactwithmap_menu{\r\n        text-align: center;\r\n    }\r\n\t.slider .single_slider h3 {\r\n    font-size: 2.5rem;\r\n\t}\r\n\r\n\r\n\r\n}\r\n@media (max-width: 320px) {\r\n\r\n\r\n    html {\r\n        font-size: 60.5%;\r\n    }\r\n    .header_top_bar{\r\n        display: none;\r\n        \r\n    }\r\n    .navbar-brand>img {\r\n        max-width: 50%;\r\n    }\r\n    .main_webhost_service_area .single_webhost_left_content p {\r\n        max-width: 60%;\r\n        margin: 0 auto;\r\n    }\r\n    .main_webhost_service_area .single_webhost_right .single_webhost_right_content p {\r\n        max-width: 60%;\r\n        margin: 0 auto;\r\n    }\r\n    .feature .main_feature_content_area .main_feature_content .single_feature {\r\n        margin-bottom: 30px;\r\n    }\r\n    .feature .main_feature_content_area .main_feature_content .single_feature p {\r\n        max-width: 50%;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    .clients .main_clients_area .main_clients_top_content .client_left_content {\r\n        text-align: center;\r\n        margin: 0 auto;\r\n        max-width: 60%;\r\n    }\r\n    .clients .main_clients_area .main_clients_top_content .client_left_content p {\r\n        font-size: 0.875rem;\r\n        font-family: 'ralewaylight';\r\n        max-width: 70%;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    .clients .main_clients_area .main_clients_top_content .single_right_client{\r\n        text-align: center;\r\n        margin-top:20px;\r\n    }\r\n    .main_clients_bottom_content .single_client_bottom {\r\n        max-width: 50%;\r\n        margin: 0 auto;\r\n        margin-bottom: 70px;\r\n    }\r\n    .main_pricing{\r\n        text-align: center;\r\n    }\r\n    .single_right_planig{\r\n        text-align: center;\r\n    }\r\n    .contactwithmap_menu{\r\n        text-align: center;\r\n    }\r\n}\r\nhtml,\r\nbody {\r\n    background-color: #ecedee;\r\n   \r\n    color: #565656;\r\n \r\n    font-family: 'roboto', sans-serif;\r\n    font-weight: 300;\r\n}"
+module.exports = "\r\n@import url('https://fonts.googleapis.com/css?family=Ubuntu');\r\n/*\r\nAuthor: Bootstrapthemes\r\nAuthor URI: http://bootstrapthemes.co\r\n*/\r\n.router-outlet {\r\n    margin-top: 65px;\r\n\r\n}\r\n/* Portrait tablets and medium desktops */\r\n@media (min-width: 992px) and (max-width: 1199px) {\r\n    body {\r\n        font-size: 1rem;\r\n    }\r\n    .call_us_menu .call_us_bottom .phone_numbr a{\r\n        font-size: 1.125rem;\r\n        font-family: 'latobold';\r\n        color: #fff;\r\n    }\r\n    .main_home_searce_domain_content input[type=\"text\"] {\r\n        min-width: 14.1875rem;\r\n    }\r\n    .form-control {\r\n        width: 5.125rem;\r\n        padding: 5px;\r\n    }\r\n    .main_home_searce_domain_content input[type=\"submit\"] {\r\n        max-width: 8.6875rem;\r\n        padding: 0px 7px;\r\n    }\r\n    .single_webhost_left_content h3{\r\n        font-size: 2rem;\r\n    }\r\n    .feature .main_feature_content_area .main_feature_content .single_feature h3 {\r\n        font-size: 1.575rem;\r\n    }\r\n\r\n\r\n}\r\n/* Portrait tablets and small desktops */\r\n@media  (min-width:769px) and (max-width: 991px) {\r\n    html {\r\n        font-size: 90%;\r\n    }\r\n    .call_us_menu .call_us_bottom .phone_numbr a{\r\n        font-size: 1.025rem;\r\n        font-family: 'latobold';\r\n        color: #fff;\r\n    }\r\n    .main_home_searce_domain_content input[type=\"text\"] {\r\n        min-width: 10.1875rem;\r\n        font-size: 0.875rem;\r\n    }\r\n    .form-control {\r\n        width: 4.125rem;\r\n        height: 56px;\r\n        font-size: 0.875rem;\r\n        padding: 2px;\r\n    }    \r\n    .main_home_searce_domain_content input[type=\"submit\"] {\r\n        max-width: 6.6875rem;\r\n        height: 56px;\r\n        padding: 0px 5px;\r\n        font-size: 0.675rem;\r\n    }  \r\n    .single_webhost_left_content h3{\r\n        font-size: 1.5rem;\r\n    }\r\n    .single_webhost_right_content h3{\r\n        font-size: 1.5rem;\r\n    }\r\n    .main_webhost_service_area .single_webhost_right {\r\n        padding-top: 181px;\r\n    }\r\n    .feature .main_feature_content_area .main_feature_content .single_feature h3 {\r\n        font-size: 1.175rem;\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n}\r\n/* Landscape phones and portrait tablets */\r\n@media (min-width:480px) and (max-width: 768px) {\r\n    html {\r\n        font-size: 80%;\r\n    }\r\n    .header_top_bar{\r\n        display: none;\r\n    }\r\n    /*.call_us_menu{\r\n        text-align: center;\r\n    }\r\n    .call_us_menu .call_us_bottom {\r\n        text-align: center;\r\n    }\r\n    .call_us_menu p{\r\n        margin-bottom: 20px;\r\n    }\r\n    .call_us_menu .call_us_bottom .phone_numbr a {\r\n        font-size: 1.025rem;\r\n    }\r\n    .call_us_menu .phone_numbr {\r\n        padding-left: 10px;\r\n    }*/\r\n    .main_webhost_service_area .single_webhost_left_content p {\r\n        max-width: 60%;\r\n        margin: 0 auto;\r\n    }\r\n    .main_webhost_service_area .single_webhost_right .single_webhost_right_content p {\r\n        max-width: 60%;\r\n        margin: 0 auto;\r\n    }\r\n    .feature .main_feature_content_area .main_feature_content .single_feature {\r\n        margin-bottom: 30px;\r\n    }\r\n    .feature .main_feature_content_area .main_feature_content .single_feature p {\r\n        max-width: 50%;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    .clients .main_clients_area .main_clients_top_content .client_left_content {\r\n        text-align: center;\r\n        margin: 0 auto;\r\n        max-width: 60%;\r\n    }\r\n    .clients .main_clients_area .main_clients_top_content .client_left_content p {\r\n        font-size: 0.875rem;\r\n        font-family: 'ralewaylight';\r\n        max-width: 70%;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    .clients .main_clients_area .main_clients_top_content .single_right_client{\r\n        text-align: center;\r\n        margin-top:20px;\r\n    }\r\n    .main_clients_bottom_content .single_client_bottom {\r\n        max-width: 50%;\r\n        margin: 0 auto;\r\n        margin-bottom: 70px;\r\n    }\r\n    .main_pricing{\r\n        text-align: center;\r\n    }\r\n    .single_right_planig{\r\n        text-align: center;\r\n    }\r\n    .contactwithmap_menu{\r\n        text-align: center;\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n}\r\n/* Landscape phones and smaller */\r\n@media (min-width:320px) and (max-width: 479px) {\r\n    html {\r\n        font-size: 65%;\r\n    }\r\n    .header_top_bar{\r\n        display: none;\r\n    }\r\n    .header_top_bar{\r\n        display: none;\r\n    }\r\n    .navbar-brand>img {\r\n        max-width: 70%;\r\n    }\r\n    .main_webhost_service_area .single_webhost_left_content p {\r\n        max-width: 60%;\r\n        margin: 0 auto;\r\n    }\r\n    .main_webhost_service_area .single_webhost_right .single_webhost_right_content p {\r\n        max-width: 60%;\r\n        margin: 0 auto;\r\n    }\r\n    .feature .main_feature_content_area .main_feature_content .single_feature {\r\n        margin-bottom: 30px;\r\n    }\r\n    .feature .main_feature_content_area .main_feature_content .single_feature p {\r\n        max-width: 50%;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    .clients .main_clients_area .main_clients_top_content .client_left_content {\r\n        text-align: center;\r\n        margin: 0 auto;\r\n        max-width: 60%;\r\n    }\r\n    .clients .main_clients_area .main_clients_top_content .client_left_content p {\r\n        font-size: 0.875rem;\r\n        font-family: 'ralewaylight';\r\n        max-width: 70%;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    .clients .main_clients_area .main_clients_top_content .single_right_client{\r\n        text-align: center;\r\n        margin-top:20px;\r\n    }\r\n    .main_clients_bottom_content .single_client_bottom {\r\n        max-width: 50%;\r\n        margin: 0 auto;\r\n        margin-bottom: 70px;\r\n    }\r\n    .main_pricing{\r\n        text-align: center;\r\n    }\r\n    .single_right_planig{\r\n        text-align: center;\r\n    }\r\n    .contactwithmap_menu{\r\n        text-align: center;\r\n    }\r\n\t.slider .single_slider h3 {\r\n    font-size: 2.5rem;\r\n\t}\r\n\r\n\r\n\r\n}\r\n@media (max-width: 320px) {\r\n\r\n\r\n    html {\r\n        font-size: 60.5%;\r\n    }\r\n    .header_top_bar{\r\n        display: none;\r\n        \r\n    }\r\n    .navbar-brand>img {\r\n        max-width: 50%;\r\n    }\r\n    .main_webhost_service_area .single_webhost_left_content p {\r\n        max-width: 60%;\r\n        margin: 0 auto;\r\n    }\r\n    .main_webhost_service_area .single_webhost_right .single_webhost_right_content p {\r\n        max-width: 60%;\r\n        margin: 0 auto;\r\n    }\r\n    .feature .main_feature_content_area .main_feature_content .single_feature {\r\n        margin-bottom: 30px;\r\n    }\r\n    .feature .main_feature_content_area .main_feature_content .single_feature p {\r\n        max-width: 50%;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    .clients .main_clients_area .main_clients_top_content .client_left_content {\r\n        text-align: center;\r\n        margin: 0 auto;\r\n        max-width: 60%;\r\n    }\r\n    .clients .main_clients_area .main_clients_top_content .client_left_content p {\r\n        font-size: 0.875rem;\r\n        font-family: 'ralewaylight';\r\n        max-width: 70%;\r\n        margin: 0 auto;\r\n    }\r\n\r\n    .clients .main_clients_area .main_clients_top_content .single_right_client{\r\n        text-align: center;\r\n        margin-top:20px;\r\n    }\r\n    .main_clients_bottom_content .single_client_bottom {\r\n        max-width: 50%;\r\n        margin: 0 auto;\r\n        margin-bottom: 70px;\r\n    }\r\n    .main_pricing{\r\n        text-align: center;\r\n    }\r\n    .single_right_planig{\r\n        text-align: center;\r\n    }\r\n    .contactwithmap_menu{\r\n        text-align: center;\r\n    }\r\n}\r\nhtml,\r\nbody {\r\n    background-color: #ecedee;\r\n   \r\n    color: #565656;\r\n \r\n    font-family: 'roboto', sans-serif;\r\n    font-weight: 300;\r\n}\r\n.main-color-bg{\r\n    background-color: #e74c3c !important;\r\n    border-color: #c0392b !important;\r\n    color: #ffffff;\r\n  }"
 
 /***/ }),
 
@@ -2100,12 +2253,16 @@ var appConfig = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__user_user_interface_user_interface_component__ = __webpack_require__("./src/app/user/user-interface/user-interface.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__main_layout_advance_search_advance_search_component__ = __webpack_require__("./src/app/main/layout/advance-search/advance-search.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__main_layout_map_marker_move_map_marker_move_component__ = __webpack_require__("./src/app/main/layout/map-marker-move/map-marker-move.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__admin_layout_admin_nav_admin_nav_component__ = __webpack_require__("./src/app/admin/layout/admin-nav/admin-nav.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__admin_layout_admin_breadcrum_admin_breadcrum_component__ = __webpack_require__("./src/app/admin/layout/admin-breadcrum/admin-breadcrum.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -2183,7 +2340,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_29__main_layout_comment_box_comment_box_component__["a" /* CommentBoxComponent */],
                 __WEBPACK_IMPORTED_MODULE_9_ng2_file_upload_ng2_file_upload__["FileSelectDirective"],
                 __WEBPACK_IMPORTED_MODULE_31__main_layout_fail_page_fail_page_component__["a" /* FailPageComponent */],
-                __WEBPACK_IMPORTED_MODULE_32__form_form_component__["b" /* FormComponent */], __WEBPACK_IMPORTED_MODULE_32__form_form_component__["a" /* DialogOverviewExampleDialog */], __WEBPACK_IMPORTED_MODULE_33__main_layout_map_service_map_service_component__["a" /* MapServiceComponent */], __WEBPACK_IMPORTED_MODULE_34__user_user_interface_user_interface_component__["a" /* UserInterfaceComponent */], __WEBPACK_IMPORTED_MODULE_35__main_layout_advance_search_advance_search_component__["a" /* AdvanceSearchComponent */], __WEBPACK_IMPORTED_MODULE_36__main_layout_map_marker_move_map_marker_move_component__["a" /* MapMarkerMoveComponent */]
+                __WEBPACK_IMPORTED_MODULE_32__form_form_component__["b" /* FormComponent */], __WEBPACK_IMPORTED_MODULE_32__form_form_component__["a" /* DialogOverviewExampleDialog */], __WEBPACK_IMPORTED_MODULE_33__main_layout_map_service_map_service_component__["a" /* MapServiceComponent */],
+                __WEBPACK_IMPORTED_MODULE_34__user_user_interface_user_interface_component__["a" /* UserInterfaceComponent */], __WEBPACK_IMPORTED_MODULE_35__main_layout_advance_search_advance_search_component__["a" /* AdvanceSearchComponent */], __WEBPACK_IMPORTED_MODULE_36__main_layout_map_marker_move_map_marker_move_component__["a" /* MapMarkerMoveComponent */], __WEBPACK_IMPORTED_MODULE_37__admin_layout_admin_nav_admin_nav_component__["a" /* AdminNavComponent */], __WEBPACK_IMPORTED_MODULE_38__admin_layout_admin_breadcrum_admin_breadcrum_component__["a" /* AdminBreadcrumComponent */]
             ],
             entryComponents: [__WEBPACK_IMPORTED_MODULE_32__form_form_component__["b" /* FormComponent */], __WEBPACK_IMPORTED_MODULE_32__form_form_component__["a" /* DialogOverviewExampleDialog */], __WEBPACK_IMPORTED_MODULE_22__main_item_item_component__["a" /* ItemComponent */], __WEBPACK_IMPORTED_MODULE_22__main_item_item_component__["b" /* UserContactDialog */], __WEBPACK_IMPORTED_MODULE_21__main_login_login_component__["a" /* LoginComponent */], __WEBPACK_IMPORTED_MODULE_21__main_login_login_component__["b" /* RegisterDialog */]],
             imports: [
@@ -2233,6 +2391,7 @@ var AppModule = (function () {
             providers: [
                 __WEBPACK_IMPORTED_MODULE_6__guards_index__["a" /* AuthGuard */],
                 __WEBPACK_IMPORTED_MODULE_10__services_index__["d" /* LevelService */],
+                __WEBPACK_IMPORTED_MODULE_10__services_index__["g" /* StatisticSerivce */],
                 __WEBPACK_IMPORTED_MODULE_10__services_index__["b" /* AuthenticationService */],
                 __WEBPACK_IMPORTED_MODULE_10__services_index__["a" /* AlertService */],
                 __WEBPACK_IMPORTED_MODULE_10__services_index__["e" /* LocationService */],
