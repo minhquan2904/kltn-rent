@@ -1,5 +1,5 @@
 var motels = require('../models/Motel.model');
-
+var statistics = require('../models/Statistic.model');
 var Q = require('q');
 var _ = require('lodash'); 
 var service = {};
@@ -95,6 +95,7 @@ function findById(id)
             if(motel)
             {
                 // success
+                updateVisitors();
                 deferred.resolve(motel);
             }
             else
@@ -104,6 +105,23 @@ function findById(id)
             }
     });
     return deferred.promise;
+
+    function updateVisitors() {
+
+        statistics.findOne({}, {},{sort: {'created_at': -1}}, function(err, statistic) {
+            if (err) {
+                deferred.reject(err.name + ': ' + err.message)
+            }
+
+            statistic.update({visitors: statistic.visitors+1}, function(err, raw) {
+                if (err) {
+                    deferred.reject(err.name + ': ' + err.message);
+                }
+
+                console.log(raw);
+            })
+        });
+    }
 }
 function findLtPrice(price)
 {

@@ -56,7 +56,7 @@ function register(req, res) {
 }
 
 function getAll(req, res) {
-    service.getAll()
+    service.getListNewest()
         .then(function (users) {
             res.send(users);
         })

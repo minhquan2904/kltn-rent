@@ -1,4 +1,5 @@
-var express = require('express');
+var express = require('express'); 
+
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -33,7 +34,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'dist')));
+
 app.use('/assets', express.static(__dirname + "/uploads"));
+
+
 
 app.use('/users', user);
 app.use('/upload',upload);
@@ -62,8 +66,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
-// active job
 
 
 module.exports = app;

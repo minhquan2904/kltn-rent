@@ -11,8 +11,12 @@ var userSchema = new Schema({
     lastname:       {type: String, default: 'default'}, 
     email:          {type: String, default: '0@0'},
     phone:          {type: Number, default: 0},
-    level:          {type: Number, default: 1},
-    exp:            {type: Number, default: 0},
+    rating:         {
+        level:          {type: Number, default: 1},
+        exp:            {type: Number, default: 0},
+        level_up_at:    {type: Date, default: Date.now()}
+    },
+    created_at:     {type: Date, default: Date.now()},
     role:           {type: Number, default: 1},
     _motels    : [{ type: Schema.Types.ObjectId, ref: 'Motel' }]
 },{collection : 'users'});

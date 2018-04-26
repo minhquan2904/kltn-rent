@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js remove agenda
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add express-session
 
 PATH: 
   /home/minhquan/.rvm/gems/ruby-2.4.1/bin:/home/minhquan/.rvm/gems/ruby-2.4.1@global/bin:/usr/share/rvm/rubies/ruby-2.4.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/share/rvm/bin

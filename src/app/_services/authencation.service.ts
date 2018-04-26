@@ -33,6 +33,9 @@ export class AuthenticationService {
             return user;
         });
     }
+    getNewUser() {
+        return this.http.get('/users/');
+    }
     update(id, user) {
         return this.http.put('/users/' + id, user);
     }

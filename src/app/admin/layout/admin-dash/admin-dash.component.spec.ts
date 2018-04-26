@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminBreadcrumComponent } from './admin-breadcrum.component';
+import { AdminDashComponent } from './admin-dash.component';
 
-describe('AdminBreadcrumComponent', () => {
-  let component: AdminBreadcrumComponent;
-  let fixture: ComponentFixture<AdminBreadcrumComponent>;
+describe('AdminDashComponent', () => {
+  let component: AdminDashComponent;
+  let fixture: ComponentFixture<AdminDashComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminBreadcrumComponent ]
+      declarations: [ AdminDashComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminBreadcrumComponent);
+    fixture = TestBed.createComponent(AdminDashComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

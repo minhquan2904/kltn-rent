@@ -68,7 +68,8 @@ import { UserInterfaceComponent } from './user/user-interface/user-interface.com
 import { AdvanceSearchComponent } from './main/layout/advance-search/advance-search.component';
 import { MapMarkerMoveComponent } from './main/layout/map-marker-move/map-marker-move.component';
 import { AdminNavComponent } from './admin/layout/admin-nav/admin-nav.component';
-import { AdminBreadcrumComponent } from './admin/layout/admin-breadcrum/admin-breadcrum.component';
+import { AdminDashComponent } from './admin/layout/admin-dash/admin-dash.component';
+import { AdminTableMotelComponent } from './admin/layout/admin-table-motel/admin-table-motel.component';
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full' , component: HomeComponent},
   { path: 'home', component: HomeComponent},
@@ -77,7 +78,14 @@ const appRoutes: Routes = [
   { path: 'user', component: UserInterfaceComponent},
   { path: 'login', component: LoginComponent},
   { path: 'item/:id', component: ItemComponent},
-  { path: 'admin', component: AdminPageComponent},
+  {
+    path: 'admin', pathMatch: 'prefix',
+    component: AdminPageComponent,
+    children: [
+      {path: '', component: AdminDashComponent},
+      {path: 'home', component: AdminDashComponent}
+    ]
+  },
   { path: 'show-map', component: ShowMapComponent, resolve: {
     list: LocationService
   }},
@@ -108,7 +116,7 @@ const appRoutes: Routes = [
     FileSelectDirective,
     FailPageComponent,
     FormComponent, DialogOverviewExampleDialog, MapServiceComponent,
-    UserInterfaceComponent, AdvanceSearchComponent, MapMarkerMoveComponent, AdminNavComponent, AdminBreadcrumComponent
+    UserInterfaceComponent, AdvanceSearchComponent, MapMarkerMoveComponent, AdminNavComponent, AdminDashComponent, AdminTableMotelComponent
     ],
     entryComponents: [FormComponent, DialogOverviewExampleDialog, ItemComponent, UserContactDialog, LoginComponent, RegisterDialog],
   imports: [

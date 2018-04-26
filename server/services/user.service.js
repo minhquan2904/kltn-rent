@@ -1,7 +1,9 @@
+
 var users = require('../models/User');
 var bcrypt = require('bcryptjs');
 var Q = require('q');
 var _ = require('lodash'); 
+var moment      = require('moment');
 var service = {};
 
 service.authenticate = authenticate;
@@ -13,7 +15,30 @@ service.changePassword = changePassword;
 service.delete = _delete;
 service.findMod = findMod;
 service.findById = findById;
+service.getListNewest = getListNewest;
 module.exports = service;
+
+function getListNewest() {
+    var deferred = Q.defer();
+
+    var result;
+    users.find({}, {}, {sort: {'created_at': -1}, limit: 10}, function(err, users) {
+        if(err) {
+          deferred.reject(err.name + ': ' + err.message);  
+        }
+
+        users.forEach(function(user) {
+           user.hash = '404';
+           user.username = '404';
+       });
+       result = users;
+       deferred.resolve(result);
+        
+    })
+
+    return deferred.promise;
+}
+
 function findById(id) {
     var deferred = Q.defer();
     users.findOne({"_id": id}, function (err, user) {
