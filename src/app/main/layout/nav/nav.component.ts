@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {TranslateService} from '@ngx-translate/core';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -9,18 +9,9 @@ export class NavComponent implements OnInit {
 
   data: any = {};
   loginStatus: String;
-  constructor() { }
+  constructor(public translate: TranslateService) { }
 
   ngOnInit() {
     this.loginStatus = localStorage.getItem('currentUser') ? 'Log out' : 'Log in';
-    this.getCurrentPosition() ;
-  }
-  getCurrentPosition()  {
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.data.lat = position.coords.latitude;
-        this.data.lng = position.coords.longitude;
-      });
-    }
   }
 }

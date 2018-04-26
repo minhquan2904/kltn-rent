@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import { TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule, } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
@@ -93,7 +96,10 @@ const appRoutes: Routes = [
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];
-
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
 
 @NgModule({
   declarations: [
@@ -123,6 +129,14 @@ const appRoutes: Routes = [
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAslxy4f_o9CBtV-gh2iT8ZMyR0RoKP_UQ',
       libraries: ['places']
+    }),
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
     }),
     AgmSnazzyInfoWindowModule,
     BrowserModule,
@@ -172,7 +186,8 @@ const appRoutes: Routes = [
     LocationService,
     customHttpProvider,
     NullDefaultValueDirective, MotelService, CommentService,
-    {provide: LocationStrategy, useClass: HashLocationStrategy}],
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    { provide: LOCALE_ID, useValue: 'vi' } ],
   bootstrap: [AppComponent]
 })
 

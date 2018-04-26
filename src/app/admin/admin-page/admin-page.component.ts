@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StatisticSerivce, AlertService } from '../../_services/index';
+
 @Component({
   selector: 'app-admin-page',
   templateUrl: './admin-page.component.html',
@@ -7,7 +8,7 @@ import { StatisticSerivce, AlertService } from '../../_services/index';
 })
 export class AdminPageComponent implements OnInit {
 
-  constructor(private statisticService: StatisticSerivce, private alertService: AlertService) { }
+  constructor( private statisticService: StatisticSerivce, private alertService: AlertService) { }
   static: any = {};
   ngOnInit() {
     this.statisticService.getInfo().subscribe((res) => {

@@ -29,6 +29,8 @@
     "@angular/router": "^5.2.9",
     "@ngrx/core": "^1.2.0",
     "@ngrx/store": "^5.1.0",
+    "@ngx-translate/core": "9",
+    "@ngx-translate/http-loader": "^2.0.1",
     "angular2-token": "^0.2.0-beta.14",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
