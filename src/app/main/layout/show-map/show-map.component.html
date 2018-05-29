@@ -1,4 +1,4 @@
-<app-nav></app-nav>
+<app-nav ></app-nav>
 
 <div class="temp" style="height: 150px; background-color: #F5F5F5;">
 </div>
@@ -23,10 +23,10 @@
             </ng-template>
           </agm-snazzy-info-window>
     </agm-marker>  
-    <div *ngFor="let item of list.list">
+    <div *ngFor="let item of listLocation">
       <agm-marker  [latitude]="item.lat" [longitude]="item.lng">
-        <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true">
-            <ng-template>
+        <agm-snazzy-info-window [maxWidth]="1000" [closeWhenOthersOpen]="true" style="min-width: 400px;">
+            <ng-template >
              <p>{{item.category}}</p>
              <p><small>{{item.add}}, {{item.street}}, {{item.ward}}, {{item.district}}</small></p>
              <a [routerLink]="['/item', item._id]" target="_blank">Show Details</a>

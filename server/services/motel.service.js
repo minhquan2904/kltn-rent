@@ -182,8 +182,10 @@ function getListNearBy(data)
                 deferred.reject(err.name + ': ' + err.message);
             if(motels)
             {
+               
                 motels.forEach(element => {
                     dis = distance(data, element);
+                    
                     if(dis <= data.distance)
                     {
                         listNearBy.push(element);

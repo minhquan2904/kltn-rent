@@ -89,9 +89,7 @@ const appRoutes: Routes = [
       {path: 'home', component: AdminDashComponent}
     ]
   },
-  { path: 'show-map', component: ShowMapComponent, resolve: {
-    list: LocationService
-  }},
+  { path: 'show-map', component: ShowMapComponent},
   { path: 'fail', component: FailPageComponent},
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

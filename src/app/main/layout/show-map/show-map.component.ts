@@ -13,8 +13,10 @@ export class ShowMapComponent implements OnInit {
   public list: any = [];
   public latitude: number;
   public longitude: number;
-  public data: any = {};
-  public listLocation: any = {};
+  public data: any = {
+    distance : 10
+  };
+  public listLocation: Array<any> = [];
   public zoom: number;
   value = 'Choose distance';
   constructor(private router: Router
@@ -22,16 +24,9 @@ export class ShowMapComponent implements OnInit {
 
   ngOnInit(): void {
     // set google maps defaults
-    this.route.data
-    .subscribe((data) => {this.list = data; console.log(this.list); } );
     this.zoom = 14;
     this.latitude = 10.8504796;
     this.longitude = 106.77129390000005;
-
-    this.list.list.forEach(element => {
-      element.lat = Number.parseFloat(element.lat);
-      element.lng = Number.parseFloat(element.lng);
-    });
     this.setCurrentPosition() ;
     }
 
@@ -51,14 +46,18 @@ export class ShowMapComponent implements OnInit {
 
   getListNearBy() {
     this.motelService.getListNearBy(this.data).subscribe((res) => {
-      this.listLocation = res;
+      res.map(item => {
+        item.lat = Number.parseFloat(item.lat);
+        item.lng = Number.parseFloat(item.lng);
+        this.listLocation.push(item);
+      });
     }, (err) => {
       this.alertService.error('ERR');
     });
   }
 
   searchWithDistance() {
-    this.router.navigate(['/show-map'], {queryParams: {lat: this.latitude, lng: this.longitude, dis: this.value}});
-    window.location.reload();
+    this.data.distance = this.value; // change distance;
+    this.ngOnInit();
   }
 }

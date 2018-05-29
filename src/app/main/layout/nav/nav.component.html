@@ -4,21 +4,22 @@
     </div>
 </div>
 <mat-toolbar color="primary">
-
-    <button mat-button routerLink="/">
+    
+    <button mat-button routerLink="/" [ngStyle]="{'color': colorStyle === 'WHITE' ? 'white' : 'black'}">
     <mat-icon>home</mat-icon> 
-        RENT</button>
+    {{ 'PAGE.HOME' | translate}}</button>
 
     <!-- This fills the remaining space of the current row -->
     <span class="fill-remaining-space"></span>
-    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm [ngStyle]="{'color': colorStyle === 'WHITE' ? 'white' : 'black'}">
         <button mat-button routerLink="['/home']">{{ 'PAGE.HOME' | translate}}</button>
-        <button mat-button routerLink="['/home']">District 9</button>
-        <button mat-button routerLink="['/home']">Thu Duc district</button>
-        <button mat-button routerLink="['/home']">More</button>
-        <button mat-button [routerLink]="['/add']">Add</button>
-        <button mat-button [routerLink]="['/login']">{{loginStatus}}</button>
-        <button mat-button [routerLink]="['/show-map']" [queryParams]="{ lat: data.lat, lng: data.lng}">Overview</button>
+        <button mat-button routerLink="['/home']">{{ 'PAGE.D9' | translate}}</button>
+        <button mat-button routerLink="['/home']">{{ 'PAGE.DThuDuc' | translate}}</button>
+        <button mat-button routerLink="['/home']">{{ 'PAGE.MORE' | translate}}</button>
+        <button mat-button [routerLink]="['/add']">{{ 'PAGE.ADD' | translate}}</button>
+        <button mat-button [routerLink]="['/login']" *ngIf="!loginStatus">{{ 'PAGE.LOGIN' | translate}}</button>
+        <button mat-button [routerLink]="['/login']" *ngIf="loginStatus">{{ 'PAGE.LOGOUT' | translate}}</button>
+        <button mat-button [routerLink]="['/show-map']" [queryParams]="{ lat: data.lat, lng: data.lng}">{{ 'PAGE.OVERVIEW' | translate}}</button>
 
 
         

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 @Component({
   selector: 'app-nav',
@@ -7,11 +7,13 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class NavComponent implements OnInit {
 
+  @Input() colorStyle: String;
   data: any = {};
-  loginStatus: String;
+  loginStatus: Boolean;
   constructor(public translate: TranslateService) { }
 
   ngOnInit() {
-    this.loginStatus = localStorage.getItem('currentUser') ? 'Log out' : 'Log in';
+    console.log(this.colorStyle);
+    this.loginStatus = localStorage.getItem('currentUser') ? true : false;
   }
 }

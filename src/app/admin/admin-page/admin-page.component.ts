@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StatisticSerivce, AlertService } from '../../_services/index';
+
 
 @Component({
   selector: 'app-admin-page',
@@ -8,15 +8,10 @@ import { StatisticSerivce, AlertService } from '../../_services/index';
 })
 export class AdminPageComponent implements OnInit {
 
-  constructor( private statisticService: StatisticSerivce, private alertService: AlertService) { }
-  static: any = {};
+  constructor( ) { }
+  
   ngOnInit() {
-    this.statisticService.getInfo().subscribe((res) => {
-      this.static = res.json();
-      // console.log(this.static);
-    }, (err) => {
-      this.alertService.error(err);
-    });
+  
   }
 
 }
