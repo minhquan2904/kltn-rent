@@ -5,7 +5,9 @@ import { TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule, } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HashLocationStrategy, LocationStrategy, registerLocaleData } from '@angular/common';
+import localVi from '@angular/common/locales/vi';
+import localEn from '@angular/common/locales/en';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './_guards/index';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -86,7 +88,8 @@ const appRoutes: Routes = [
     component: AdminPageComponent,
     children: [
       {path: '', component: AdminDashComponent},
-      {path: 'home', component: AdminDashComponent}
+      {path: 'home', component: AdminDashComponent},
+      {path: 'motel', component: AdminTableMotelComponent}
     ]
   },
   { path: 'show-map', component: ShowMapComponent},
@@ -98,7 +101,8 @@ const appRoutes: Routes = [
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
 }
-
+registerLocaleData(localVi);
+registerLocaleData(localEn);
 @NgModule({
   declarations: [
     AppComponent,

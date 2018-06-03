@@ -1,3 +1,4 @@
+
 var motels = require('../models/Motel.model');
 var statistics = require('../models/Statistic.model');
 var Q = require('q');
@@ -9,11 +10,11 @@ service.create = create;
 service.delete = _delete;
 service.findByUser = findByUser;
 service.findById = findById;
+service.findLtPrice = findLtPrice;
+service.findByStatus = findByStatus;
+service.fullSearch = fullSearch;
 service.getListNearBy = getListNearBy;
 service.getLatLng = getLatLng;
-service.findLtPrice = findLtPrice;
-service.delete = _delete;
-service.fullSearch = fullSearch;
 module.exports = service;
 
 function fullSearch(value) {
@@ -21,7 +22,7 @@ function fullSearch(value) {
 
     motels.find({$or:[{title: { $regex: '.*' + value + '.*' } }, {city:{ $regex: '.*' + value + '.*' }}, {district:{ $regex: '.*' + value + '.*' }}, {ward: { $regex: '.*' + value + '.*' }}, {street: { $regex: '.*' + value + '.*' }}, {description: { $regex: '.*' + value + '.*' }}] },  function(err, motels) {
         if(err) { 
-            deferred.reject(err)
+            deferred.reject(err);
         }
         if(motels) {
             deferred.resolve(motels);
@@ -30,10 +31,28 @@ function fullSearch(value) {
         }
        
     });
-                    
- 
     return deferred.promise;
-                
+}
+function findByStatus(status) {
+    var deferred = Q.defer();
+
+    motels.find({status: status}, function(err,motels)
+    {
+        if(err)
+            deferred.reject(err.name + ': ' + err.message);
+        if(motels.length > 0)
+        {
+            // success
+            deferred.resolve(motels);
+        }
+        else
+        {
+            deferred.reject("No result found");
+        }
+    });
+
+
+    return deferred.promise;
 }
 function create(motelParam)
 {

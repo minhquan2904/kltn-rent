@@ -27,9 +27,10 @@ function create(req,res) {
 
 function getInfo(req, res) {
     statisticService.getData().then(function(item){
-        if(item)
-        // search successful
-         res.status(200).send(item);
+        if(item){// search successful 
+            // console.log(item);
+            res.status(200).send(item);
+        }
         else{
         // search fail
         res.status(400).send("No Result");

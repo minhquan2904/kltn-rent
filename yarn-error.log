@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js add @ngx-translate/core@9 --save
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add @agm/snazzy-info-window
 
 PATH: 
   /home/minhquan/.rvm/gems/ruby-2.4.1/bin:/home/minhquan/.rvm/gems/ruby-2.4.1@global/bin:/usr/share/rvm/rubies/ruby-2.4.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/usr/share/rvm/bin
@@ -48,6 +48,8 @@ npm manifest:
       "@angular/router": "^5.2.9",
       "@ngrx/core": "^1.2.0",
       "@ngrx/store": "^5.1.0",
+      "@ngx-translate/core": "9",
+      "@ngx-translate/http-loader": "^2.0.1",
       "angular2-token": "^0.2.0-beta.14",
       "bcryptjs": "^2.4.3",
       "body-parser": "^1.18.2",
@@ -331,6 +333,14 @@ Lockfile:
       source-map "^0.5.6"
       tree-kill "^1.0.0"
       webpack-sources "^1.1.0"
+  
+  "@ngx-translate/core@9":
+    version "9.1.1"
+    resolved "https://registry.yarnpkg.com/@ngx-translate/core/-/core-9.1.1.tgz#ae103928836b8a9e069fd2e2e76fa2198cc7e628"
+  
+  "@ngx-translate/http-loader@^2.0.1":
+    version "2.0.1"
+    resolved "https://registry.yarnpkg.com/@ngx-translate/http-loader/-/http-loader-2.0.1.tgz#aa67788e64bfa8652691a77b022b3b4031209113"
   
   "@schematics/angular@0.3.2":
     version "0.3.2"

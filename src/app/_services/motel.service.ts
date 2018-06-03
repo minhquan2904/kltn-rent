@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-
 import 'rxjs/add/operator/map';
 
+import { Motel } from '../_models/motel.model';
 @Injectable()
 export class MotelService {
     constructor(private http: Http) { }
@@ -56,6 +56,34 @@ export class MotelService {
           reject(err);
         });
     });
+   }
+   findByStatus(status): Observable<Motel[]> {
+       return this.http.get('/motel/find-by-status/' + status)
+        .map( res => {
+            return res.json().map(item => {
+                return new Motel(
+                    item._id,
+                    item.title,
+                    item.category,
+                    item.customer,
+                    item.description,
+                    item.price,
+                    item.area,
+                    item.city,
+                    item.district,
+                    item.street,
+                    item.ward,
+                    item.add,
+                    item.address,
+                    item.lat,
+                    item.lng,
+                    item.img,
+                    item.contact,
+                    item.status,
+                    item.created_at
+                );
+            });
+        });
    }
    getTotalVote(id)    {
        return new Promise((resolve, reject) => {

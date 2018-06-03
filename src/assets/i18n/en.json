@@ -28,7 +28,10 @@
     "VISITORS":       "Visitors",
     "FIRSTNAME":      "First name",
     "LASTNAME":       "Last name",
-    "ACTION":         "Action"
+    "ACTION":         "Action",
+    "VIEW_ACCEPTED":  "View accepted motel",
+    "PENDING_MOTEL":  "Pending motel",
+    "ACCEPTED_MOTEL": "Accepted motel"
 
   }
 }

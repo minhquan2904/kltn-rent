@@ -21,7 +21,7 @@ var motelSchema = new Schema({
     lat:            String,
     img:            {type: [String]},
     contact:        String,
-    status:         Boolean,
+    status:         { type: Number, default: 0},
     created_at:     Date,
     fields:         { type: [String], index: true, text: true }
 

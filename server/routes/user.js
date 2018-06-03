@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var service = require('../services/user.service');
 
 // routes
-router.get('/',getAll);
+router.get('/:lim',getLimit);
 router.post('/authenticate', authenticate);
 router.post('/register', register);
 router.post('/find-mod',findMod);
@@ -55,8 +55,8 @@ function register(req, res) {
         });
 }
 
-function getAll(req, res) {
-    service.getListNewest()
+function getLimit(req, res) {
+    service.getListNewest(req.params.lim)
         .then(function (users) {
             res.send(users);
         })

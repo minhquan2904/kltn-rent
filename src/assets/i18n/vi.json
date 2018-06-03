@@ -28,7 +28,9 @@
     "VISITORS":       "Lượt xem",
     "FIRSTNAME":      "Tên",
     "LASTNAME":       "Họ",
-    "ACTION":         "Hành động"
-
+    "ACTION":         "Hành động",
+    "VIEW_ACCEPTED":  "Hiển thị bài đăng đã duyệt",
+    "PENDING_MODEL":  "Bài đăng chờ duyệt",
+    "ACCEPTED_MOTEL": "Bài đăng đã duyệt"
   }
 }

@@ -5,10 +5,9 @@ var motel = require('../models/Motel.model');
 var motelService = require('../services/motel.service');
 
 //routes
-
+router.delete('/:id', _delete );
 router.post('/insert', insert);
 router.put('/:id', update );
-router.delete('/:id', _delete );
 router.post('/get-lat-lng', getLatLng);
 router.post('/find-by-user', findByUser);
 router.post('/get-list-nearby', getListNearBy);
@@ -17,6 +16,7 @@ router.get('/find-by-id/:id', findById);
 router.get('/statistic/num-post', getNumPost);
 router.post('/search', search); // advance search
 router.get('/full-search/:q', fullSearch);
+router.get('/find-by-status/:status', findByStatus);
 module.exports = router;
 
 function getNumPost(req, res) {
@@ -28,7 +28,25 @@ function getNumPost(req, res) {
         }
     });
 }
+function findByStatus(req, res) {
 
+    
+    motelService.findByStatus(req.params.status).then(function(motels){
+        if(motels)
+        // search successful
+        res.status(200).send(motels);
+    else{
+        // search fail
+        res.status(400).send("No Result");
+    }
+    })
+    .catch(
+        function (err) {
+            res.status(400).send(err);
+        }
+    );
+        
+}
 
 function fullSearch(req, res) {
    motelService.fullSearch(req.params.q).then(function (motels) {

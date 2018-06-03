@@ -18,11 +18,11 @@ service.findById = findById;
 service.getListNewest = getListNewest;
 module.exports = service;
 
-function getListNewest() {
+function getListNewest(lim) {
     var deferred = Q.defer();
-
+    
     var result;
-    users.find({}, {}, {sort: {'created_at': -1}, limit: 10}, function(err, users) {
+    users.find({}, {}, {sort: {'created_at': -1}, limit: Number.parseInt(lim)}, function(err, users) {
         if(err) {
           deferred.reject(err.name + ': ' + err.message);  
         }
