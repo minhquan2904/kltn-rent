@@ -1,5 +1,5 @@
 export const appConfig = {
-    apiUrl: 'http://localhost:3000',
+    apiUrl: 'https://kltn-rent-spk.herokuapp.com',
     vn: {
         '1': {
           'name': 'Cần Thơ',
